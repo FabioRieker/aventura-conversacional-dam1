@@ -2,6 +2,6 @@
 
  -Fabio Rieker:
 
- -Noelia :
+ -Noelia Cantador:
 
- -Mateo :
+ -Mateo García:
