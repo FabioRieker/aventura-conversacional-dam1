@@ -3,7 +3,6 @@ package proyectoHarryPotter;
 public class ProyectoHP {
 
 	public static void main(String[] args) {
-		System.out.println("Segunda prueba");
 		// TODO Auto-generated method stub
 		System.out.println("╔══════════════════════════════════════════════════════════════════════╗");
 		System.out.println(
