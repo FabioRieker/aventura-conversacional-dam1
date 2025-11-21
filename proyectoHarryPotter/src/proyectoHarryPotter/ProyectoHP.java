@@ -446,7 +446,15 @@ public class ProyectoHP {
 		}
 
 		if (!correcto) {
-			System.out.println("Has agotado tus intentos... Se apaga el juego");
+			String txt = "Has agotado tus intentos... Se apaga el juego.";
+			for (int i = 0; i < txt.length(); i++) {
+				System.out.print(txt.charAt(i));
+				try {
+					Thread.sleep(50); // espera 50 milisegundos entre letras
+				} catch (InterruptedException e) {
+					e.printStackTrace(); // muestra el error si ocurre
+				}
+			}
 		}
 	}
 
