@@ -3,7 +3,7 @@ package proyectoHarryPotter;
 import java.util.Random;
 import java.util.Scanner;
 
-public class ProyectoHP {
+public class ProyectoHP_BACKUP {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
