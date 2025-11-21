@@ -116,7 +116,7 @@ public class ProyectoHP {
 							// gorro seleccionador. La mayoria está hecha con IA porque se me borró el
 							// archivo y me gustaría ver por que hace ese booleano y no hace falta más
 							// variables
-
+							
 							int slytherin = 0;
 							int ravenclaw = 0;
 							int hufflepuff = 0;
