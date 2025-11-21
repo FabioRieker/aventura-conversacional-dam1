@@ -7,9 +7,10 @@ public class ProyectoHP {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		System.out.println("╔═══════════════════════════════════════════════════════════════════════════════╗");
 		System.out.println("╔══════════════════════════════════════════════════════════════════════╗");
 		System.out.println(
-				"                                                                                                 \n"
+				"        			                                                                                         \n"
 						+ "                                                                                                    \n"
 						+ "      ▄ .▄ ▄▄▄· ▄▄▄  ▄▄▄   ▄· ▄▌     ▄▄▄·      ▄▄▄▄▄▄▄▄▄▄▄▄▄ .▄▄▄                                   \n"
 						+ "     ██▪▐█▐█ ▀█ ▀▄ █·▀▄ █·▐█▪██▌    ▐█ ▄█▪     •██  •██  ▀▄.▀·▀▄ █·                                 \n"
@@ -27,7 +28,7 @@ public class ProyectoHP {
 						+ "    ▐███▌▐█▌.▐▌██▐█▌ ███ ▐█▄▄▌▐█•█▌▐█▄▪▐█▐█ ▪▐▌▐███▌▐█▌▐█▌.▐▌██▐█▌▐█ ▪▐▌▐█▌▐▌\n"
 						+ "    ·▀▀▀  ▀█▄▀▪▀▀ █▪. ▀   ▀▀▀ .▀  ▀ ▀▀▀▀  ▀  ▀ ·▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪ ▀  ▀ .▀▀▀      	                                                                                        \n"
 						+ "                                                                                                           ");
-		System.out.println("╚══════════════════════════════════════════════════════════════════════╝");
+		System.out.println("╚═══════════════════════════════════════════════════════════════════════════════╝");
 
 		System.out.println();
 		System.out.println();
@@ -116,7 +117,7 @@ public class ProyectoHP {
 							// gorro seleccionador. La mayoria está hecha con IA porque se me borró el
 							// archivo y me gustaría ver por que hace ese booleano y no hace falta más
 							// variables
-
+							
 							int slytherin = 0;
 							int ravenclaw = 0;
 							int hufflepuff = 0;
@@ -462,4 +463,4 @@ public class ProyectoHP {
 
 
 
-fokodsfjosjfojsfo
+
