@@ -7,7 +7,6 @@ public class ProyectoHP {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		esto es una errata
 		System.out.println("╔══════════════════════════════════════════════════════════════════════╗");
 		System.out.println(
 				"                                                                                                 \n"
