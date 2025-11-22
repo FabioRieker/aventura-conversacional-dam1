@@ -114,8 +114,22 @@ main
 							String nombre = sc.nextLine();
 							System.out.println("Era una mañana tranquila en Londres cuando de repente...");
 							System.out.println("Viene un búho para entregarte un sobre");
-							System.out.println("El sobre es para ti, " + nombre + ".");
-							System.out.println("Está seleccionado para ir a Hogwarts");
+							String carta = "Estimado/a " + nombre + ",\n"
+									+ "Nos complace informarle que ha sido admitido/a en el Colegio Hogwarts de Magia y Hechicería.\n"
+									+ "El curso comienza el 1 de septiembre. El tren parte de la estación de King's Cross,\n"
+									+ "andén 9¾, a las once en punto.\n\n"
+									+ "Adjunto encontrará la lista de libros y materiales necesarios.\n\n"
+									+ "Atentamente,\n"
+									+ "Minerva McGonagall\n"
+									+ "Subdirectora de Hogwarts";
+							for (int i = 0; i < carta.length(); i++) {
+								System.out.print(carta.charAt(i));
+								try {
+									Thread.sleep(50); // espera 50 milisegundos entre letras
+								} catch (InterruptedException e) {
+									e.printStackTrace(); // muestra el error si ocurre
+								}
+							}
 							// gorro seleccionador. La mayoria está hecha con IA porque se me borró el
 							// archivo y me gustaría ver por que hace ese booleano y no hace falta más
 							// variables
