@@ -887,9 +887,7 @@ public class ProyectoHP {
 								}
 							}
 
-							// gorro seleccionador. La mayoria está hecha con IA porque se me borró el
-							// archivo y me gustaría ver por que hace ese booleano y no hace falta más
-							// variables
+							// gorro seleccionador
 
 							int slytherin = 0;
 							int ravenclaw = 0;
@@ -976,6 +974,9 @@ public class ProyectoHP {
 									case "3":
 										gryffindor++;
 										break;
+									case "4":
+										slytherin++;
+										break;
 									default:
 										System.out.println("No has marcado bien la puntuación, vuelve a intentarlo.");
 										valido1 = false;
@@ -987,19 +988,23 @@ public class ProyectoHP {
 							do {
 								valido1 = true;
 								System.out.println("¿Qué asignatura de Hogwarts te atrae más?");
-								System.out.println("1. Herbología.");
-								System.out.println("2. Defensa contra las Artes Oscuras.");
-								System.out.println("3. Encantamientos.");
+								System.out.println("1. Pociones");
+								System.out.println("2. Herbología.");
+								System.out.println("3. Defensa contra las Artes Oscuras.");
+								System.out.println("4. Encantamientos.");
 								String opcion3 = sc.nextLine();
 
 								switch (opcion3) {
 									case "1":
-										hufflepuff++;
+										slytherin++;
 										break;
 									case "2":
-										gryffindor++;
+										hufflepuff++;
 										break;
 									case "3":
+										gryffindor++;
+										break;
+									case "4":
 										ravenclaw++;
 										break;
 									default:
@@ -1014,8 +1019,9 @@ public class ProyectoHP {
 								valido1 = true;
 								System.out.println("Si tuvieras que elegir un animal mágico, ¿cuál sería?");
 								System.out.println("1. Niffler.");
-								System.out.println("2. Hipogrifo.");
-								System.out.println("3. Fénix.");
+								System.out.println("2. Serpiente");
+								System.out.println("3. Hipogrifo.");
+								System.out.println("4. Fénix.");
 								String opcion4 = sc.nextLine();
 
 								switch (opcion4) {
@@ -1023,9 +1029,12 @@ public class ProyectoHP {
 										hufflepuff++;
 										break;
 									case "2":
-										gryffindor++;
+										slytherin++;
 										break;
 									case "3":
+										gryffindor++;
+										break;
+									case "4":
 										ravenclaw++;
 										break;
 									default:
@@ -1042,6 +1051,7 @@ public class ProyectoHP {
 								System.out.println("1. Lealtad.");
 								System.out.println("2. Valentía.");
 								System.out.println("3. Inteligencia.");
+								System.out.println("4. Poder.");
 								String opcion5 = sc.nextLine();
 
 								switch (opcion5) {
@@ -1053,6 +1063,9 @@ public class ProyectoHP {
 										break;
 									case "3":
 										ravenclaw++;
+										break;
+									case "4":
+										slytherin++;
 										break;
 									default:
 										System.out.println("No has marcado bien la puntuación, vuelve a intentarlo.");
@@ -1067,7 +1080,8 @@ public class ProyectoHP {
 								System.out.println("Si ganaras un premio, ¿qué preferirías que reconociera?");
 								System.out.println("1. Tu bondad.");
 								System.out.println("2. Tu sabiduría.");
-								System.out.println("3. Tu valentía.");
+								System.out.println("3. Tu ambición.");
+								System.out.println("4. Tu valentía.");
 								String opcion6 = sc.nextLine();
 
 								switch (opcion6) {
@@ -1078,6 +1092,9 @@ public class ProyectoHP {
 										ravenclaw++;
 										break;
 									case "3":
+										slytherin++;
+										break;
+									case "4":
 										gryffindor++;
 										break;
 									default:
@@ -1094,6 +1111,7 @@ public class ProyectoHP {
 								System.out.println("1. El más seguro y tranquilo.");
 								System.out.println("2. El más oscuro y desafiante.");
 								System.out.println("3. El más misterioso y lleno de enigmas.");
+								System.out.println("4. El más lleno de vida y aventuras.");
 								String opcion7 = sc.nextLine();
 
 								switch (opcion7) {
@@ -1101,10 +1119,13 @@ public class ProyectoHP {
 										hufflepuff++;
 										break;
 									case "2":
-										gryffindor++;
+										slytherin++;
 										break;
 									case "3":
 										ravenclaw++;
+										break;
+									case "4":
+										gryffindor++;
 										break;
 									default:
 										System.out.println("No has marcado bien la puntuación, vuelve a intentarlo.");
