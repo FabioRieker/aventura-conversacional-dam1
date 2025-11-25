@@ -6,9 +6,6 @@ import java.util.Scanner;
 
 public class ProyectoHP {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
@@ -65,6 +62,7 @@ public class ProyectoHP {
 		Random rd = new Random();
 
 		int intentos = 0;
+		String casa = "";
 		boolean correcto = false;
 		// bucle para que el usuario introduzca la contraseña
 
@@ -83,7 +81,6 @@ public class ProyectoHP {
 				}
 			}
 			String passwd = sc.nextLine();
-
 			if (passwd.equals("jugones")) {
 				System.out.println("¡Contraseña correcta!");
 				correcto = true;
@@ -168,7 +165,9 @@ public class ProyectoHP {
 								}
 							}
 
-							// gorro seleccionador
+							// gorro seleccionador. La mayoria está hecha con IA porque se me borró el
+							// archivo y me gustaría ver por que hace ese booleano y no hace falta más
+							// variables
 
 							int slytherin = 0;
 							int ravenclaw = 0;
@@ -264,7 +263,6 @@ public class ProyectoHP {
 										break;
 								}
 							} while (!valido1);
-
 							// Pregunta 4
 							do {
 								valido1 = true;
@@ -470,15 +468,19 @@ public class ProyectoHP {
 							if (hufflepuff >= ravenclaw && hufflepuff >= gryffindor && ravenclaw >= slytherin) {
 								System.out.println("Enhorabuena eres de Hufflepuff");
 								moral = 80;
+								casa = "Hufflepuff";
 							} else if (ravenclaw >= hufflepuff && ravenclaw >= gryffindor && ravenclaw >= slytherin) {
 								System.out.println("Enhorabuena eres de ravenclaw");
 								moral = 60;
+								casa = "Ravenclaw";
 							} else if (gryffindor >= hufflepuff && gryffindor >= ravenclaw && gryffindor >= slytherin) {
 								System.out.println("Enhorabuena eres de gryffindor");
 								moral = 70;
+								casa = "Gryffindor";
 							} else {
 								System.out.println("Enhorabuena eres de slytherin");
 								moral = 30;
+								casa = "Slytherin";
 							}
 
 							break;
@@ -659,8 +661,9 @@ public class ProyectoHP {
 							System.out.println("1. Buscar un libro de hechizos");
 							System.out.println("2. Hablar con Hermione");
 							System.out.println("3. Volver a las Escaleras");
+							System.out.println("4. Volver al Vestíbulo");
 
-							int numeroHermione = rd.nextInt(1, 11); // número del 1 al 10
+							int numeroHermione = rd.nextInt(1, 11);
 							String opBiblio = sc.nextLine();
 							switch (opBiblio) {
 								case "1":
@@ -673,6 +676,7 @@ public class ProyectoHP {
 										System.out.println("Ya te sabes este libro de memoria.");
 									}
 									break;
+
 								case "2":
 									if (inventarioObjetos.contains("Poción Inteligencia")) {
 										System.out.println("Hermione: ya te di la poción... ¡Dejame estudiar!");
@@ -690,7 +694,6 @@ public class ProyectoHP {
 										} else {
 											System.out.println("Hermione: Mmm... no es ese. Vuelve otro momento.");
 										}
-										break;
 									}
 									break;
 								case "3":
@@ -812,18 +815,88 @@ public class ProyectoHP {
 							break;
 
 						case "Torre Astronomía":
-							System.out.println("La brisa nocturna es fuerte. Neville está aquí buscando su sapo.");
-							System.out.println("1. Ayudar a Neville.");
+							System.out.println("La brisa nocturna es fuerte. Neville está aburrido.");
+							System.out.println("1. Hablar con Neville.");
 							System.out.println("2. Mirar por el telescopio.");
 							System.out.println("3. Bajar.");
 
 							String opTorre = sc.nextLine();
 							switch (opTorre) {
+
 								case "1":
-									System.out.println(
-											"Encuentras a su sapo debajo de un banco. Neville te enseña el hechizo 'Lumos' como agradecimiento.");
-									if (!inventarioHechizos.contains("Lumos"))
-										inventarioHechizos.add("Lumos");
+
+									// Primero verificamos si ya tiene el hechizo para no repetir el acertijo
+									if (inventarioHechizos.contains("Lumos")) {
+										System.out
+												.println("Neville: Ya te enseñé el hechizo, ¡ve a salvar el colegio!");
+									} else {
+
+										// Aqui es para nuestro estudiante to majo
+										if (esEstudiante) {
+											System.out.println("Neville: ¿Te sabes la historia de Harry Potter?");
+											System.out.println(
+													"Neville: ¿Quién es el fundador de tu casa (" + casa + ")?");
+
+											String respuesta = sc.nextLine().toLowerCase();
+											boolean esCorrecto = false;
+
+											// Validamos la respuesta según la casa asignada por el sombrero
+											if (casa.equals("Gryffindor") && respuesta.contains("godric")) {
+												esCorrecto = true;
+											} else if (casa.equals("Slytherin") && respuesta.contains("salazar")) {
+												esCorrecto = true;
+											} else if (casa.equals("Ravenclaw") && respuesta.contains("rowena")) {
+												esCorrecto = true;
+											} else if (casa.equals("Hufflepuff") && respuesta.contains("helga")) {
+												esCorrecto = true;
+											}
+
+											if (esCorrecto) {
+												System.out.println(
+														"Neville: ¡Correcto! Te voy a enseñar un hechizo útil.");
+												System.out.println("--- ¡HAS APRENDIDO LUMOS! ---");
+												inventarioHechizos.add("Lumos");
+											} else {
+												System.out
+														.println("Neville: Mmm... no me suena. Deberías estudiar más.");
+											}
+
+											// Myrtle la llorona
+										} else if (esMyrtle) {
+											System.out.println("Neville: ¿Qué criatura te mató en los baños?");
+											System.out.print("Respuesta: ");
+											String respuestaMyrtle = sc.nextLine().toLowerCase();
+
+											if (respuestaMyrtle.contains("basilisco")) {
+												System.out.println(
+														"Myrtle: ¡Sí! Esos horribles ojos amarillos... *solloza*");
+												System.out.println(
+														"Neville (aliviado): Gracias por calmarla. Toma, un hechizo para que veas en la oscuridad.");
+												System.out.println("--- ¡HAS APRENDIDO LUMOS! ---");
+												inventarioHechizos.add("Lumos");
+											} else {
+												System.out.println("Neville: Myrtle, por favor, deja de llorar.");
+											}
+
+											// Dobby
+										} else if (esDobby) {
+											System.out.println("Neville sonríe al verte.");
+											System.out.println("Neville: Hola Dobby, ¿trabajando tarde?");
+											System.out.print("¿Qué prenda te mantiene calentito? ");
+											String respuestaDobby = sc.nextLine().toLowerCase();
+
+											if (respuestaDobby.contains("calcetin")
+													|| respuestaDobby.contains("calcetín")) {
+												System.out.println(
+														"Neville: Jaja, muy bueno Dobby. Toma amigo, aprende esto.");
+												System.out.println("--- ¡HAS APRENDIDO LUMOS! ---");
+												inventarioHechizos.add("Lumos");
+											} else {
+												System.out.println(
+														"Neville: ¡Dobby no te castigues! Inténtalo más tarde.");
+											}
+										}
+									}
 									break;
 								case "2":
 									System.out.println("Ves la Marca Tenebrosa en el cielo. El tiempo se acaba.");
