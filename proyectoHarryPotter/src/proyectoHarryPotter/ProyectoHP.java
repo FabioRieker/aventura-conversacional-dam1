@@ -87,10 +87,28 @@ public class ProyectoHP {
 				// inicio de variables y listas de nuestro jogo do harry popoter hehe
 				ArrayList<String> inventarioObjetos = new ArrayList<>();
 				ArrayList<String> inventarioHechizos = new ArrayList<>();
+				ArrayList<Integer> daniosHechizos = new ArrayList<>();
 				int vida = 100;
 				int moral = 50;
 				int contadorHistoria = 0;
 				String nombreFinalPersonaje = "Jugador";
+				
+				// variables enemigos
+
+				// Barón Sanguinario
+				ArrayList<String> inventarioHechizosBaron = new ArrayList<>();
+				ArrayList<Integer> daniosHechizosBaron = new ArrayList<>();
+				int vidaBaron = 45;
+				// Hechizos Barón
+				// Índice 0
+				inventarioHechizosBaron.add("Umbraculum");
+				daniosHechizosBaron.add(12);
+				// Índice 1
+				inventarioHechizosBaron.add("");
+				daniosHechizosBaron.add(8);
+				// Índice 2
+				inventarioHechizosBaron.add("Grito Sanguinario");
+				daniosHechizosBaron.add(5);
 
 				// Navegacion
 				String zonaActual = "Vestíbulo";
@@ -103,6 +121,9 @@ public class ProyectoHP {
 				// inicio del juego
 				boolean valido = false;
 				String personaje;
+				
+				// variables batalla
+				boolean turnoJugador;
 
 				do {
 					System.out.println("¿Qué personaje quieres jugar?");
@@ -118,21 +139,37 @@ public class ProyectoHP {
 							System.out.println("Has desbloqueado a Myrtle la llorona");
 							esMyrtle = true;
 							nombreFinalPersonaje = "Myrtle";
-							vida = 80;
+							vida = 45;
 							moral = 40;
 							inventarioObjetos.add("Gafas Rotas");
-							inventarioHechizos.add("Grito Espectral");
+							// Índice 0
+							inventarioHechizos.add("");
+							daniosHechizos.add(0);
+							// Índice 1
+							inventarioHechizos.add("");
+							daniosHechizos.add(0);
+							// Índice 2
+							inventarioHechizos.add("");
+							daniosHechizos.add(0);
 							valido = true;
 							break;
 						case "2":
 							System.out.println("Has desbloqueado a Dobby");
 							esDobby = true;
 							nombreFinalPersonaje = "Dobby";
-							vida = 120;
-							moral = 90;
+							vida = 30;
+							moral = 60;
 							inventarioObjetos.add("Poción de Vida");
 							inventarioObjetos.add("Calcetín");
-							inventarioHechizos.add("Chasquido de Elfo");
+							// Índice 0
+							inventarioHechizos.add("Aparición");
+							daniosHechizos.add(10);
+							// Índice 1
+							inventarioHechizos.add("Explosiones Mágicas");
+							daniosHechizos.add(25);
+							// Índice 2
+							inventarioHechizos.add("Desarmar");
+							daniosHechizos.add(5);
 							valido = true;
 							break;
 						case "3":
@@ -142,8 +179,18 @@ public class ProyectoHP {
 							System.out.println("¿Cómo te llamas?");
 							String nombre = sc.nextLine();
 							nombreFinalPersonaje = nombre;
+							vida = 60;
+							moral = 80;
 							inventarioObjetos.add("Varita de Acebo");
-							inventarioHechizos.add("Flipendo");
+							// Índice 0
+							inventarioHechizos.add("");
+							daniosHechizos.add(0);
+							// Índice 1
+							inventarioHechizos.add("");
+							daniosHechizos.add(0);
+							// Índice 2
+							inventarioHechizos.add("");
+							daniosHechizos.add(0);
 
 							System.out.println("Era una mañana tranquila en Londres cuando de repente...");
 							System.out.println("Viene un búho para entregarte un sobre");
@@ -561,6 +608,180 @@ public class ProyectoHP {
 												"El Barón te saluda con respeto (miedo). Te da una pista sobre el bosque.");
 									else
 										System.out.println("El Barón te mira mal. Sientes un escalofrío.");
+									System.out.println("¡Comienza la batalla!");
+
+									// DECIDIR QUIÉN EMPIEZA
+									if (Math.random() < 0.5) {
+										turnoJugador = true;
+										System.out.println("\n>> Empieza el jugador");
+									} else {
+										turnoJugador = false;
+										System.out.println("\n>> Empieza el Barón Sanguinario");
+									}
+
+									// ========================================================================
+//					                          BUCLE DE COMBATE
+									// ========================================================================
+									while (vida > 0 && vidaBaron > 0) {
+
+										// ------------------- TURNO DEL JUGADOR -------------------
+										if (turnoJugador) {
+											System.out.println("\n------------------------------------------------");
+											System.out.println("TU TURNO | Vida: " + vida + " | Barón: " + vidaBaron);
+											System.out.println("¿Qué quieres hacer?");
+											System.out.println("1. Atacar");
+											System.out.println("2. Usar Objeto");
+
+											int accion = sc.nextInt();
+
+											// --- OPCIÓN 1: ATACAR ---
+											if (accion == 1) {
+												System.out.println("=== Hechizos disponibles ===");
+												for (int i = 0; i < inventarioHechizos.size(); i++) {
+													System.out.println((i + 1) + ". " + inventarioHechizos.get(i) + " (Daño: "
+															+ daniosHechizos.get(i) + ")");
+												}
+												System.out.println("Elige ataque:");
+												int opcionAtaque = sc.nextInt();
+
+												if (opcionAtaque >= 1 && opcionAtaque <= inventarioHechizos.size()) {
+													// Recuperar datos de las listas del jugador
+													String ataqueSeleccionado = inventarioHechizos.get(opcionAtaque - 1);
+													int danioBase = daniosHechizos.get(opcionAtaque - 1);
+
+													System.out.println("¡Has lanzado " + ataqueSeleccionado + "!");
+
+													// Determinar acierto
+													int resultado = rd.nextInt(3); // 0=Total, 1=Parcial, 2=Fallo
+													int danioFinal = 0;
+
+													if (resultado == 0) {
+														danioFinal = danioBase;
+														System.out.println(">> ¡Impacto Directo! El Barón recibe " + danioFinal
+																+ " de daño.");
+													} else if (resultado == 1) {
+														danioFinal = danioBase / 2;
+														System.out.println(
+																">> El Barón se cubre. Recibe " + danioFinal + " de daño.");
+													} else {
+														System.out.println(">> ¡El Barón esquivó tu ataque!");
+													}
+
+													vidaBaron -= danioFinal;
+													if (vidaBaron < 0)
+														vidaBaron = 0;
+
+													turnoJugador = false; // Turno finalizado
+
+												} else {
+													System.out.println("Ataque no válido. Vuelve a intentarlo.");
+													continue; // Reinicia el bucle sin cambiar turno
+												}
+
+												// --- OPCIÓN 2: USAR OBJETO ---
+											} else if (accion == 2) {
+												if (inventarioObjetos.isEmpty()) {
+													System.out.println("¡No tienes objetos en el inventario!");
+													continue; // Vuelve al menú
+												}
+
+												System.out.println("=== Inventario ===");
+												for (int i = 0; i < inventarioObjetos.size(); i++) {
+													System.out.println((i + 1) + ". " + inventarioObjetos.get(i));
+												}
+												System.out.println("0. Cancelar");
+
+												System.out.println("Elige objeto:");
+												int opcionObjeto = sc.nextInt();
+
+												if (opcionObjeto == 0) {
+													continue; // Cancelar y volver al menú principal
+												}
+
+												if (opcionObjeto >= 1 && opcionObjeto <= inventarioObjetos.size()) {
+													String objetoElegido = inventarioObjetos.get(opcionObjeto - 1);
+													System.out.println("Usaste: " + objetoElegido);
+
+													// --- LÓGICA DE EFECTOS ---
+													if (objetoElegido.equals("Poción de Vida")) {
+														int cura = 20; // Cantidad que cura
+														vida += cura;
+														System.out.println(">> ¡Recuperas " + cura + " de vida!");
+													} else if (objetoElegido.equals("Calcetín")) {
+														System.out.println(">> Te pones el calcetín. No pasa nada.");
+													} else {
+														System.out.println(">> Este objeto no parece tener efecto en combate.");
+													}
+
+													// ELIMINAR EL OBJETO USADO
+													inventarioObjetos.remove(opcionObjeto - 1);
+
+													turnoJugador = false; // Turno finalizado tras usar objeto
+												} else {
+													System.out.println("Opción inválida.");
+													continue;
+												}
+
+											} else {
+												System.out.println("Acción no reconocida.");
+												continue;
+											}
+										}
+										// ------------------- TURNO DEL BARÓN (ENEMIGO) -------------------
+										else {
+											System.out.println("\n------------------------------------------------");
+											System.out.println("TURNO DEL BARÓN SANGUINARIO");
+
+											// Selección aleatoria del ataque usando el tamaño de su lista
+											int indiceAleatorio = rd.nextInt(inventarioHechizosBaron.size());
+
+											// Extraer nombre y daño con el mismo índice
+											String nombreAtaque = inventarioHechizosBaron.get(indiceAleatorio);
+											int danioBase = daniosHechizosBaron.get(indiceAleatorio);
+
+											System.out.println("El Barón ataca con: ¡" + nombreAtaque + "!");
+
+											// Calcular acierto
+											int resultado = rd.nextInt(3);
+											int danioFinal = 0;
+
+											if (resultado == 0) {
+												danioFinal = danioBase;
+												System.out.println(
+														">> ¡Te golpea brutalmente! Recibes " + danioFinal + " de daño.");
+											} else if (resultado == 1) {
+												danioFinal = danioBase / 2;
+												System.out.println(
+														">> Te cubres a tiempo. Recibes solo " + danioFinal + " de daño.");
+											} else {
+												System.out.println(">> ¡Has esquivado el ataque!");
+											}
+
+											vida -= danioFinal;
+											if (vida < 0)
+												vida = 0;
+											System.out.println("Tu vida restante: " + vida);
+
+											turnoJugador = true; // Le toca al jugador
+										}
+									}
+
+									// ========================================================================
+//					                          FIN DEL COMBATE
+									// ========================================================================
+									if (vida <= 0) {
+										System.out.println("\n***********************************");
+										System.out.println("      HAS SIDO DERROTADO...");
+										System.out.println("***********************************");
+										vidaBaron = 45;
+
+									} else {
+										System.out.println("\n***********************************");
+										System.out.println(" ¡HAS VENCIDO AL BARÓN SANGUINARIO!");
+										System.out.println("***********************************");
+
+									}
+									
 									break;
 								case "2":
 									System.out.println("Comes un pastel de calabaza. +10 Vida.");
