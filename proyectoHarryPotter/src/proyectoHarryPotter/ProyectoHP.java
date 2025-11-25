@@ -96,9 +96,11 @@ public class ProyectoHP {
 				// variables enemigos
 
 				// Barón Sanguinario
+				ArrayList<String> inventarioObjetosBaron = new ArrayList<>();
 				ArrayList<String> inventarioHechizosBaron = new ArrayList<>();
 				ArrayList<Integer> daniosHechizosBaron = new ArrayList<>();
 				int vidaBaron = 45;
+				inventarioObjetosBaron.add("cabeza");
 				// Hechizos Barón
 				// Índice 0
 				inventarioHechizosBaron.add("Umbraculum");
@@ -142,6 +144,7 @@ public class ProyectoHP {
 							vida = 45;
 							moral = 40;
 							inventarioObjetos.add("Gafas Rotas");
+							// Hechizos Myrtle
 							// Índice 0
 							inventarioHechizos.add("");
 							daniosHechizos.add(0);
@@ -161,6 +164,7 @@ public class ProyectoHP {
 							moral = 60;
 							inventarioObjetos.add("Poción de Vida");
 							inventarioObjetos.add("Calcetín");
+							// Hechizos Dobby
 							// Índice 0
 							inventarioHechizos.add("Aparición");
 							daniosHechizos.add(10);
@@ -182,6 +186,7 @@ public class ProyectoHP {
 							vida = 60;
 							moral = 80;
 							inventarioObjetos.add("Varita de Acebo");
+							// Hechizos Estudiante
 							// Índice 0
 							inventarioHechizos.add("");
 							daniosHechizos.add(0);
@@ -650,6 +655,14 @@ public class ProyectoHP {
 													int danioBase = daniosHechizos.get(opcionAtaque - 1);
 
 													System.out.println("¡Has lanzado " + ataqueSeleccionado + "!");
+													
+													// --- LÓGICA DE EFECTOS ---
+													if (ataqueSeleccionado.equals("Desarmar")) {
+														inventarioObjetosBaron.remove("cabeza");
+														System.out.println("La cabeza del Barón Sanguinario cayó al suelo.");
+														danioBase = danioBase * 2;
+														
+													}
 
 													// Determinar acierto
 													int resultado = rd.nextInt(3); // 0=Total, 1=Parcial, 2=Fallo
