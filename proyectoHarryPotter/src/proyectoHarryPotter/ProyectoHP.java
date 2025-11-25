@@ -87,11 +87,48 @@ public class ProyectoHP {
 
 				// inicio de variables y listas de nuestro jogo do harry popoter hehe
 				ArrayList<String> inventarioObjetos = new ArrayList<>();
+				ArrayList<String> inventarioHechizosMO = new ArrayList<>();
 				ArrayList<String> inventarioHechizos = new ArrayList<>();
+				ArrayList<Integer> daniosHechizos = new ArrayList<>();
 				int vida = 100;
 				int moral = 50;
 				int contadorHistoria = 0;
+
+				// esta variable de momento no se usa
 				String nombreFinalPersonaje = "Jugador";
+				// variables enemigos
+
+				// Barón Sanguinario
+				ArrayList<String> inventarioObjetosBaron = new ArrayList<>();
+				ArrayList<String> inventarioHechizosBaron = new ArrayList<>();
+				ArrayList<Integer> daniosHechizosBaron = new ArrayList<>();
+				int vidaBaron = 45;
+				inventarioObjetosBaron.add("cabeza");
+				// Hechizos Barón
+				// Índice 0
+				inventarioHechizosBaron.add("Umbraculum");
+				daniosHechizosBaron.add(5);
+				// Índice 1
+				inventarioHechizosBaron.add("Sanguinem");
+				daniosHechizosBaron.add(10);
+				// Índice 2
+				inventarioHechizosBaron.add("Crimsonis");
+				daniosHechizosBaron.add(15);
+
+				// Acromántula
+				ArrayList<String> inventarioHechizosTula = new ArrayList<>();
+				ArrayList<Integer> daniosHechizosTula = new ArrayList<>();
+				int vidaTula = 60;
+				// Hechizos Tula
+				// Índice 0
+				inventarioHechizosTula.add("Telatrampa");
+				daniosHechizosTula.add(6);
+				// Índice 1
+				inventarioHechizosTula.add("Picadura");
+				daniosHechizosTula.add(12);
+				// Índice 2
+				inventarioHechizosTula.add("Plancha");
+				daniosHechizosTula.add(18);
 
 				// Navegacion
 				String zonaActual = "Vestíbulo";
@@ -104,6 +141,9 @@ public class ProyectoHP {
 				// inicio del juego
 				boolean valido = false;
 				String personaje;
+				String nombre = "";
+				// variables batalla
+				boolean turnoJugador;
 
 				do {
 					System.out.println("¿Qué personaje quieres jugar?");
@@ -119,32 +159,62 @@ public class ProyectoHP {
 							System.out.println("Has desbloqueado a Myrtle la llorona");
 							esMyrtle = true;
 							nombreFinalPersonaje = "Myrtle";
-							vida = 80;
+							vida = 45;
 							moral = 40;
 							inventarioObjetos.add("Gafas Rotas");
-							inventarioHechizos.add("Grito Espectral");
+							inventarioObjetos.add("Varita de Acebo");
+							// Hechizos Myrtle
+							// Índice 0
+							inventarioHechizos.add("Susurrus");
+							daniosHechizos.add(8);
+							// Índice 1
+							inventarioHechizos.add("Lacrimus");
+							daniosHechizos.add(16);
+							// Índice 2
+							inventarioHechizos.add("Anima Vinculus");
+							daniosHechizos.add(0);
 							valido = true;
 							break;
 						case "2":
 							System.out.println("Has desbloqueado a Dobby");
 							esDobby = true;
 							nombreFinalPersonaje = "Dobby";
-							vida = 120;
-							moral = 90;
+							vida = 30;
+							moral = 60;
 							inventarioObjetos.add("Poción de Vida");
 							inventarioObjetos.add("Calcetín");
-							inventarioHechizos.add("Chasquido de Elfo");
+							// Hechizos Dobby
+							// Índice 0
+							inventarioHechizos.add("Desarmar");
+							daniosHechizos.add(5);
+							// Índice 1
+							inventarioHechizos.add("Aparición");
+							daniosHechizos.add(10);
+							// Índice 2
+							inventarioHechizos.add("Explosiones Mágicas");
+							daniosHechizos.add(25);
 							valido = true;
 							break;
 						case "3":
-							System.out.println("Has desbloqueado personaje random");
+							System.out.println("Has desbloqueado a Estudiante");
 							esEstudiante = true;
 							valido = true;
 							System.out.println("¿Cómo te llamas?");
-							String nombre = sc.nextLine();
+							nombre = sc.nextLine();
 							nombreFinalPersonaje = nombre;
+							vida = 60;
+							moral = 80;
 							inventarioObjetos.add("Varita de Acebo");
-							inventarioHechizos.add("Flipendo");
+							// Hechizos Estudiante
+							// Índice 0
+							inventarioHechizos.add("Incendio");
+							daniosHechizos.add(5);
+							// Índice 1
+							inventarioHechizos.add("Bombarda");
+							daniosHechizos.add(10);
+							// Índice 2
+							inventarioHechizos.add("Glacius");
+							daniosHechizos.add(20);
 
 							System.out.println("Era una mañana tranquila en Londres cuando de repente...");
 							System.out.println("Viene un búho para entregarte un sobre");
@@ -164,10 +234,7 @@ public class ProyectoHP {
 									e.printStackTrace(); // muestra el error si ocurre
 								}
 							}
-
-							// gorro seleccionador. La mayoria está hecha con IA porque se me borró el
-							// archivo y me gustaría ver por que hace ese booleano y no hace falta más
-							// variables
+							// gorro seleccionador
 
 							int slytherin = 0;
 							int ravenclaw = 0;
@@ -420,6 +487,7 @@ public class ProyectoHP {
 								System.out.println("1. Curar a los demás.");
 								System.out.println("2. Luchar contra cualquier enemigo.");
 								System.out.println("3. Conocer todos los secretos.");
+								System.out.println("4. Poder manipular a los demás.");
 								String opcion8 = sc.nextLine();
 
 								switch (opcion8) {
@@ -431,6 +499,9 @@ public class ProyectoHP {
 										break;
 									case "3":
 										ravenclaw++;
+										break;
+									case "4":
+										slytherin++;
 										break;
 									default:
 										System.out.println("No has marcado bien la puntuación, vuelve a intentarlo.");
@@ -446,6 +517,7 @@ public class ProyectoHP {
 								System.out.println("1. La cocina.");
 								System.out.println("2. La sala común de Gryffindor.");
 								System.out.println("3. La biblioteca.");
+								System.out.println("4. La habitación de los Profesores.");
 								String opcion9 = sc.nextLine();
 
 								switch (opcion9) {
@@ -458,6 +530,9 @@ public class ProyectoHP {
 									case "3":
 										ravenclaw++;
 										break;
+									case "4":
+										slytherin++;
+										break;
 									default:
 										System.out.println("No has marcado bien la puntuación, vuelve a intentarlo.");
 										valido1 = false;
@@ -465,19 +540,19 @@ public class ProyectoHP {
 								}
 							} while (!valido1);
 							if (hufflepuff >= ravenclaw && hufflepuff >= gryffindor && ravenclaw >= slytherin) {
-								System.out.println("Enhorabuena eres de Hufflepuff");
+								System.out.println("Enhorabuena eres de Hufflepuff.");
 								moral = 80;
 								casa = "Hufflepuff";
 							} else if (ravenclaw >= hufflepuff && ravenclaw >= gryffindor && ravenclaw >= slytherin) {
-								System.out.println("Enhorabuena eres de ravenclaw");
+								System.out.println("Enhorabuena eres de Ravenclaw.");
 								moral = 60;
 								casa = "Ravenclaw";
 							} else if (gryffindor >= hufflepuff && gryffindor >= ravenclaw && gryffindor >= slytherin) {
-								System.out.println("Enhorabuena eres de gryffindor");
+								System.out.println("Enhorabuena eres de Gryffindor.");
 								moral = 70;
 								casa = "Gryffindor";
 							} else {
-								System.out.println("Enhorabuena eres de slytherin");
+								System.out.println("Enhorabuena eres de Slytherin.");
 								moral = 30;
 								casa = "Slytherin";
 							}
@@ -566,6 +641,206 @@ public class ProyectoHP {
 												"El Barón te saluda con respeto (miedo). Te da una pista sobre el bosque.");
 									else
 										System.out.println("El Barón te mira mal. Sientes un escalofrío.");
+									System.out.println("¡Comienza la batalla!");
+
+									// DECIDIR QUIÉN EMPIEZA
+									if (Math.random() < 0.5) {
+										turnoJugador = true;
+										System.out.println("\n>> Empieza el jugador");
+									} else {
+										turnoJugador = false;
+										System.out.println("\n>> Empieza el Barón Sanguinario");
+									}
+
+									// ========================================================================
+									// BUCLE DE COMBATE
+									// ========================================================================
+									while (vida > 0 && vidaBaron > 0) {
+
+										// ------------------- TURNO DEL JUGADOR -------------------
+										if (turnoJugador) {
+											System.out.println("\n------------------------------------------------");
+											System.out.println("TU TURNO | Vida: " + vida + " | Barón: " + vidaBaron);
+											System.out.println("¿Qué quieres hacer?");
+											System.out.println("1. Atacar");
+											System.out.println("2. Usar Objeto");
+
+											int accion = sc.nextInt();
+
+											// --- OPCIÓN 1: ATACAR ---
+											if (accion == 1) {
+												System.out.println("=== Hechizos disponibles ===");
+												for (int i = 0; i < inventarioHechizos.size(); i++) {
+													System.out.println(
+															(i + 1) + ". " + inventarioHechizos.get(i) + " (Daño: "
+																	+ daniosHechizos.get(i) + ")");
+												}
+												System.out.println("Elige ataque:");
+												int opcionAtaque = sc.nextInt();
+
+												if (opcionAtaque >= 1 && opcionAtaque <= inventarioHechizos.size()) {
+													// Recuperar datos de las listas del jugador
+													String ataqueSeleccionado = inventarioHechizos
+															.get(opcionAtaque - 1);
+													int danioBase = daniosHechizos.get(opcionAtaque - 1);
+
+													System.out.println("¡Has lanzado " + ataqueSeleccionado + "!");
+
+													// Determinar acierto
+													int resultado = rd.nextInt(3); // 0=Total, 1=Parcial, 2=Fallo
+													int danioFinal = 0;
+
+													// --- LÓGICA DE EFECTOS ---
+													if (ataqueSeleccionado.equals("Desarmar")
+															&& inventarioObjetosBaron.contains("cabeza")
+															&& resultado == 0 || resultado == 1) {
+														inventarioObjetosBaron.remove("cabeza");
+														danioBase = danioBase * 2;
+													}
+
+													if (resultado == 0) {
+														danioFinal = danioBase;
+														System.out.println(
+																">> ¡Impacto Directo! El Barón recibe " + danioFinal
+																		+ " de daño.");
+													} else if (resultado == 1) {
+														danioFinal = danioBase / 2;
+														System.out.println(
+																">> El Barón se cubre. Recibe " + danioFinal
+																		+ " de daño.");
+													} else {
+														System.out.println(">> ¡El Barón esquivó tu ataque!");
+													}
+
+													// --- LÓGICA DE EFECTOS ---
+													if (ataqueSeleccionado.equals("Desarmar")
+															&& inventarioObjetosBaron.contains("cabeza")
+															&& resultado == 0 || resultado == 1) {
+														System.out.println(
+																"La cabeza del Barón Sanguinario cayó al suelo.");
+													}
+
+													vidaBaron -= danioFinal;
+													if (vidaBaron < 0)
+														vidaBaron = 0;
+
+													turnoJugador = false; // Turno finalizado
+
+												} else {
+													System.out.println("Ataque no válido. Vuelve a intentarlo.");
+													continue; // Reinicia el bucle sin cambiar turno
+												}
+
+												// --- OPCIÓN 2: USAR OBJETO ---
+											} else if (accion == 2) {
+												if (inventarioObjetos.isEmpty()) {
+													System.out.println("¡No tienes objetos en el inventario!");
+													continue; // Vuelve al menú
+												}
+
+												System.out.println("=== Inventario ===");
+												for (int i = 0; i < inventarioObjetos.size(); i++) {
+													System.out.println((i + 1) + ". " + inventarioObjetos.get(i));
+												}
+												System.out.println("0. Cancelar");
+
+												System.out.println("Elige objeto:");
+												int opcionObjeto = sc.nextInt();
+
+												if (opcionObjeto == 0) {
+													continue; // Cancelar y volver al menú principal
+												}
+
+												if (opcionObjeto >= 1 && opcionObjeto <= inventarioObjetos.size()) {
+													String objetoElegido = inventarioObjetos.get(opcionObjeto - 1);
+													System.out.println("Usaste: " + objetoElegido);
+
+													// --- LÓGICA DE EFECTOS ---
+													if (objetoElegido.equals("Poción de Vida")) {
+														int cura = 20; // Cantidad que cura
+														vida += cura;
+														System.out.println(">> ¡Recuperas " + cura + " de vida!");
+													} else if (objetoElegido.equals("Calcetín")) {
+														System.out.println(">> Te pones el calcetín. No pasa nada.");
+													} else if (objetoElegido.equals("Vendas")) {
+														int cura = 10; // Cantidad que cura
+														vida += cura;
+													} else {
+														System.out.println(
+																">> Este objeto no parece tener efecto en combate.");
+													}
+
+													// ELIMINAR EL OBJETO USADO
+													inventarioObjetos.remove(opcionObjeto - 1);
+
+													turnoJugador = false; // Turno finalizado tras usar objeto
+												} else {
+													System.out.println("Opción inválida.");
+													continue;
+												}
+
+											} else {
+												System.out.println("Acción no reconocida.");
+												continue;
+											}
+										}
+										// ------------------- TURNO DEL BARÓN (ENEMIGO) -------------------
+										else {
+											System.out.println("\n------------------------------------------------");
+											System.out.println("TURNO DEL BARÓN SANGUINARIO");
+
+											// Selección aleatoria del ataque usando el tamaño de su lista
+											int indiceAleatorio = rd.nextInt(inventarioHechizosBaron.size());
+
+											// Extraer nombre y daño con el mismo índice
+											String nombreAtaque = inventarioHechizosBaron.get(indiceAleatorio);
+											int danioBase = daniosHechizosBaron.get(indiceAleatorio);
+
+											System.out.println("El Barón ataca con: ¡" + nombreAtaque + "!");
+
+											// Calcular acierto
+											int resultado = rd.nextInt(3);
+											int danioFinal = 0;
+
+											if (resultado == 0) {
+												danioFinal = danioBase;
+												System.out.println(
+														">> ¡Te golpea brutalmente! Recibes " + danioFinal
+																+ " de daño.");
+											} else if (resultado == 1) {
+												danioFinal = danioBase / 2;
+												System.out.println(
+														">> Te cubres a tiempo. Recibes solo " + danioFinal
+																+ " de daño.");
+											} else {
+												System.out.println(">> ¡Has esquivado el ataque!");
+											}
+
+											vida -= danioFinal;
+											if (vida < 0)
+												vida = 0;
+											System.out.println("Tu vida restante: " + vida);
+
+											turnoJugador = true; // Le toca al jugador
+										}
+									}
+
+									// ========================================================================
+									// FIN DEL COMBATE
+									// ========================================================================
+									if (vida <= 0) {
+										System.out.println("\n***********************************");
+										System.out.println("      HAS SIDO DERROTADO...");
+										System.out.println("***********************************");
+										vidaBaron = 45;
+
+									} else {
+										System.out.println("\n***********************************");
+										System.out.println(" ¡HAS VENCIDO AL BARÓN SANGUINARIO!");
+										System.out.println("***********************************");
+
+									}
+
 									break;
 								case "2":
 									System.out.println("Comes un pastel de calabaza. +10 Vida.");
@@ -761,6 +1036,7 @@ public class ProyectoHP {
 							String opCabana = sc.nextLine();
 							switch (opCabana) {
 								case "1":
+									System.out.println("Hola " + nombre + ", ¿Qué tal estás?");
 									System.out
 											.println("Hagrid: 'No debería deciros esto... pero seguid a las arañas'.");
 									System.out.println("Has obtenido una pista clave.");
@@ -797,9 +1073,201 @@ public class ProyectoHP {
 							switch (opBosque) {
 								case "1":
 									System.out.println("¡Una Acromántula te ataca!");
-									// aqui faltaria la escena de combate, habria que añadirla
-									System.out.println("Logras vencerla y encuentras un objeto oscuro en su nido.");
-									contadorHistoria += 2;
+									System.out.println("¡Comienza la batalla!");
+
+									// DECIDIR QUIÉN EMPIEZA
+									if (Math.random() < 0.5) {
+										turnoJugador = true;
+										System.out.println("\n>> Empieza el jugador");
+									} else {
+										turnoJugador = false;
+										System.out.println("\n>> Empieza la Acromántula");
+									}
+
+									// ========================================================================
+									// BUCLE DE COMBATE
+									// ========================================================================
+									while (vida > 0 && vidaTula > 0) {
+
+										// ------------------- TURNO DEL JUGADOR -------------------
+										if (turnoJugador) {
+											System.out.println("\n------------------------------------------------");
+											System.out.println(
+													"TU TURNO | Vida: " + vida + " | Acromántula: " + vidaTula);
+											System.out.println("¿Qué quieres hacer?");
+											System.out.println("1. Atacar");
+											System.out.println("2. Usar Objeto");
+
+											int accion = sc.nextInt();
+
+											// --- OPCIÓN 1: ATACAR ---
+											if (accion == 1) {
+												System.out.println("=== Hechizos disponibles ===");
+												for (int i = 0; i < inventarioHechizos.size(); i++) {
+													System.out.println(
+															(i + 1) + ". " + inventarioHechizos.get(i) + " (Daño: "
+																	+ daniosHechizos.get(i) + ")");
+												}
+												System.out.println("Elige ataque:");
+												int opcionAtaque = sc.nextInt();
+
+												if (opcionAtaque >= 1 && opcionAtaque <= inventarioHechizos.size()) {
+													// Recuperar datos de las listas del jugador
+													String ataqueSeleccionado = inventarioHechizos
+															.get(opcionAtaque - 1);
+													int danioBase = daniosHechizos.get(opcionAtaque - 1);
+
+													System.out.println("¡Has lanzado " + ataqueSeleccionado + "!");
+
+													// Determinar acierto
+													int resultado = rd.nextInt(3); // 0=Total, 1=Parcial, 2=Fallo
+													int danioFinal = 0;
+
+													if (resultado == 0) {
+														danioFinal = danioBase;
+														System.out.println(">> ¡Impacto Directo! La Acromántula recibe "
+																+ danioFinal
+																+ " de daño.");
+													} else if (resultado == 1) {
+														danioFinal = danioBase / 2;
+														System.out.println(
+																">> La Acromántula se cubre. Recibe " + danioFinal
+																		+ " de daño.");
+													} else {
+														System.out.println(">> ¡La Acromántula esquivó tu ataque!");
+													}
+
+													vidaTula -= danioFinal;
+													if (vidaTula < 0)
+														vidaTula = 0;
+
+													// --- LÓGICA DE EFECTOS ---
+													if (ataqueSeleccionado.equals("Anima Vinculus") && resultado == 0
+															|| resultado == 1) {
+														vida = (vida + vidaTula) / 2;
+														vidaTula = (vida + vidaTula) / 2;
+														System.out.println("¡Los combatientes compartieron su dolor!");
+													}
+
+													turnoJugador = false; // Turno finalizado
+
+												} else {
+													System.out.println("Ataque no válido. Vuelve a intentarlo.");
+													continue; // Reinicia el bucle sin cambiar turno
+												}
+
+												// --- OPCIÓN 2: USAR OBJETO ---
+											} else if (accion == 2) {
+												if (inventarioObjetos.isEmpty()) {
+													System.out.println("¡No tienes objetos en el inventario!");
+													continue; // Vuelve al menú
+												}
+
+												System.out.println("=== Inventario ===");
+												for (int i = 0; i < inventarioObjetos.size(); i++) {
+													System.out.println((i + 1) + ". " + inventarioObjetos.get(i));
+												}
+												System.out.println("0. Cancelar");
+
+												System.out.println("Elige objeto:");
+												int opcionObjeto = sc.nextInt();
+
+												if (opcionObjeto == 0) {
+													continue; // Cancelar y volver al menú principal
+												}
+
+												if (opcionObjeto >= 1 && opcionObjeto <= inventarioObjetos.size()) {
+													String objetoElegido = inventarioObjetos.get(opcionObjeto - 1);
+													System.out.println("Usaste: " + objetoElegido);
+
+													// --- LÓGICA DE EFECTOS ---
+													if (objetoElegido.equals("Poción de Vida")) {
+														int cura = 20; // Cantidad que cura
+														vida += cura;
+														System.out.println(">> ¡Recuperas " + cura + " de vida!");
+													} else if (objetoElegido.equals("Calcetín")) {
+														System.out.println(">> Te pones el calcetín. No pasa nada.");
+													} else if (objetoElegido.equals("Vendas")) {
+														int cura = 10; // Cantidad que cura
+														vida += cura;
+													} else {
+														System.out.println(
+																">> Este objeto no parece tener efecto en combate.");
+													}
+
+													// ELIMINAR EL OBJETO USADO
+													inventarioObjetos.remove(opcionObjeto - 1);
+
+													turnoJugador = false; // Turno finalizado tras usar objeto
+												} else {
+													System.out.println("Opción inválida.");
+													continue;
+												}
+
+											} else {
+												System.out.println("Acción no reconocida.");
+												continue;
+											}
+										}
+										// ------------------- TURNO DE LA ACROMÁNTULA (ENEMIGO) -------------------
+										else {
+											System.out.println("\n------------------------------------------------");
+											System.out.println("TURNO DE LA ACROMÁNTULA");
+
+											// Selección aleatoria del ataque usando el tamaño de su lista
+											int indiceAleatorio = rd.nextInt(inventarioHechizosTula.size());
+
+											// Extraer nombre y daño con el mismo índice
+											String nombreAtaque = inventarioHechizosTula.get(indiceAleatorio);
+											int danioBase = daniosHechizosTula.get(indiceAleatorio);
+
+											System.out.println("La Acromántula ataca con: ¡" + nombreAtaque + "!");
+
+											// Calcular acierto
+											int resultado = rd.nextInt(3);
+											int danioFinal = 0;
+
+											if (resultado == 0) {
+												danioFinal = danioBase;
+												System.out.println(
+														">> ¡Te golpea brutalmente! Recibes " + danioFinal
+																+ " de daño.");
+											} else if (resultado == 1) {
+												danioFinal = danioBase / 2;
+												System.out.println(
+														">> Te cubres a tiempo. Recibes solo " + danioFinal
+																+ " de daño.");
+											} else {
+												System.out.println(">> ¡Has esquivado el ataque!");
+											}
+
+											vida -= danioFinal;
+											if (vida < 0)
+												vida = 0;
+											System.out.println("Tu vida restante: " + vida);
+
+											turnoJugador = true; // Le toca al jugador
+										}
+									}
+
+									// ========================================================================
+									// FIN DEL COMBATE
+									// ========================================================================
+									if (vida <= 0) {
+										System.out.println("\n***********************************");
+										System.out.println("      HAS SIDO DERROTADO...");
+										System.out.println("***********************************");
+										vidaTula = 60;
+
+									} else {
+										System.out.println("\n***********************************");
+										System.out.println(" ¡HAS VENCIDO A LA ACROMÁNTULA!");
+										System.out.println("***********************************");
+										System.out.println("Encuentras un objeto oscuro en su nido.");
+										contadorHistoria += 2;
+
+									}
+
 									break;
 								case "2":
 									System.out.println("Encuentras Dictamo.");
@@ -829,7 +1297,6 @@ public class ProyectoHP {
 										System.out
 												.println("Neville: Ya te enseñé el hechizo, ¡ve a salvar el colegio!");
 									} else {
-
 										// Aqui es para nuestro estudiante to majo
 										if (esEstudiante) {
 											System.out.println("Neville: ¿Te sabes la historia de Harry Potter?");
@@ -868,18 +1335,16 @@ public class ProyectoHP {
 
 											if (respuestaMyrtle.contains("basilisco")) {
 												System.out.println(
-														"Myrtle: ¡Sí! Esos horribles ojos amarillos... *solloza*");
-												System.out.println(
-														"Neville (aliviado): Gracias por calmarla. Toma, un hechizo para que veas en la oscuridad.");
+														"Neville: ¡Ay Myrtle deja de llorar! Toma, un hechizo para que veas en la oscuridad.");
 												System.out.println("--- ¡HAS APRENDIDO LUMOS! ---");
 												inventarioHechizos.add("Lumos");
 											} else {
-												System.out.println("Neville: Myrtle, por favor, deja de llorar.");
+												System.out.println(
+														"Neville: Myrtle, por favor, deja de llorar y vuelve en otro momento.");
 											}
 
 											// Dobby
 										} else if (esDobby) {
-											System.out.println("Neville sonríe al verte.");
 											System.out.println("Neville: Hola Dobby, ¿trabajando tarde?");
 											System.out.print("¿Qué prenda te mantiene calentito? ");
 											String respuestaDobby = sc.nextLine().toLowerCase();
