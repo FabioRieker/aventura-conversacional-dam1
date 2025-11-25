@@ -656,18 +656,18 @@ public class ProyectoHP {
 
 													System.out.println("¡Has lanzado " + ataqueSeleccionado + "!");
 													
-													// --- LÓGICA DE EFECTOS ---
-													if (ataqueSeleccionado.equals("Desarmar")) {
-														inventarioObjetosBaron.remove("cabeza");
-														System.out.println("La cabeza del Barón Sanguinario cayó al suelo.");
-														danioBase = danioBase * 2;
-														
-													}
+													
 
 													// Determinar acierto
 													int resultado = rd.nextInt(3); // 0=Total, 1=Parcial, 2=Fallo
 													int danioFinal = 0;
 
+													// --- LÓGICA DE EFECTOS ---
+													if (ataqueSeleccionado.equals("Desarmar") && inventarioObjetosBaron.contains("cabeza") && resultado == 0 || resultado == 1) {
+														inventarioObjetosBaron.remove("cabeza");
+														danioBase = danioBase * 2;	
+													}
+													
 													if (resultado == 0) {
 														danioFinal = danioBase;
 														System.out.println(">> ¡Impacto Directo! El Barón recibe " + danioFinal
@@ -679,7 +679,12 @@ public class ProyectoHP {
 													} else {
 														System.out.println(">> ¡El Barón esquivó tu ataque!");
 													}
-
+													
+													// --- LÓGICA DE EFECTOS ---
+													if (ataqueSeleccionado.equals("Desarmar") && inventarioObjetosBaron.contains("cabeza") && resultado == 0 || resultado == 1) {
+														System.out.println("La cabeza del Barón Sanguinario cayó al suelo.");
+													}
+													
 													vidaBaron -= danioFinal;
 													if (vidaBaron < 0)
 														vidaBaron = 0;
