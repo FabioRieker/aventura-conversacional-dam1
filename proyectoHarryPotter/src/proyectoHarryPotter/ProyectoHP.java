@@ -573,9 +573,11 @@ public class ProyectoHP {
 				boolean explorando = true;
 
 				while (explorando) {
+					//Hace que salga un poltergeist que puede salir en todo el juego, en cualquier zona. Hay un 15 % de posibilidades de que salga, si sale se calcula el daño que te va a hacer
 					if (rd.nextInt(100) < 15) {
 						System.out.println("\n¡Peeves el Poltergeist aparece de la nada!");
-						System.out.println("Peeves: '¡Tontos, bobos, mocosos!' Te tira tizas a la cara.");
+						System.out.println("Peeves: Mocosoo! Te tira tizas a la cara ");
+						//Calcula cuánto daño te va a hacer
 						int danioPeeves = rd.nextInt(5) + 1;
 						vida -= danioPeeves;
 						System.out.println("Pierdes " + danioPeeves + " de vida por la humillación.");
@@ -598,16 +600,16 @@ public class ProyectoHP {
 					// Switch principal el tocho
 					switch (zonaActual) {
 					case "Vestíbulo":
-						System.out.println("El gran hall de entrada. Las antorchas iluminan las paredes de piedra.");
+						System.out.println("El gran vestibulo de entrada. Las antorchas iluminan las paredes de piedra.");
 						System.out.println("1. Ir al Gran Comedor");
 						System.out.println("2. Bajar a las Mazmorras");
 						System.out.println("3. Subir por la Gran Escalera");
 						System.out.println("4. Salir a los Terrenos del Castillo");
 						System.out.println("5. Ver Estado e Inventario");
 
-						
 						String op = sc.nextLine();
-						//Esto es un codigo secreto que añade el hechizo Avada Kedavra, y te da atope de vida. Flow codigo konami
+						// Esto es un codigo secreto que añade el hechizo Avada Kedavra, y te da tope
+						// de vida. Flow codigo konami
 						if (op.equals("travesura realizada")) {
 							System.out.println("¡El Mapa del Merodeador te revela secretos!");
 							inventarioHechizos.add("Avada Kedavra");
@@ -978,8 +980,8 @@ public class ProyectoHP {
 						System.out.println("Silencio absoluto. Miles de libros te rodean.");
 						System.out.println("1. Buscar un libro de hechizos");
 						System.out.println("2. Hablar con Hermione");
-						System.out.println("3. Volver a las Escaleras");
-						System.out.println("4. Volver al Vestíbulo");
+						System.out.println("3. Forzar la puerta oxidada del fondo (Pasillo 3er Piso)");
+						System.out.println("4. Volver a las Escaleras");
 
 						int numeroHermione = rd.nextInt(1, 11);
 						String opBiblio = sc.nextLine();
@@ -1014,6 +1016,11 @@ public class ProyectoHP {
 							}
 							break;
 						case "3":
+							System.out.println("Apartas unas estanterías viejas y te cuelas en la zona prohibida...");
+							zonaActual = "Pasillo Tercer Piso";
+							break;
+
+						case "4":
 							zonaActual = "Gran Escalera";
 							break;
 						default:
@@ -1445,10 +1452,11 @@ public class ProyectoHP {
 						case "2":
 							System.out.println("Ves la Marca Tenebrosa en el cielo. El tiempo se acaba.");
 							break;
-							
+
 						case "3":
 							if (casa.equals("Ravenclaw")) {
-								System.out.println("La estatua te formula una pregunta: '¿Qué fue antes, el fénix o la llama?'.");
+								System.out.println(
+										"La estatua te formula una pregunta: '¿Qué fue antes, el fénix o la llama?'.");
 								System.out.println("Respondes correctamente. La puerta se abre.");
 								System.out.println("Las vistas son increíbles. Tu mente se despeja.");
 								System.out.println("Ganas un objeto 'Pergamino Antiguo' si no lo tenías.");
@@ -1463,6 +1471,86 @@ public class ProyectoHP {
 							break;
 						case "4":
 							zonaActual = "Gran Escalera";
+							break;
+						default:
+							System.out.println("Opción no válida.");
+						}
+						break;
+					// nueva zona en dentro de la biblio hehe
+					case "Pasillo Tercer Piso":
+						System.out.println("El cartel indica:Prohibido el paso a quien no desee una muerte dolorosa");
+						System.out.println("Oyes una respiración pesada y tres gruñidos distintos detrás de la puerta.");
+						System.out.println("1. Entrar y enfrentarse a la bestia");
+						System.out.println("2. Pegar la oreja a la puerta");
+						System.out.println("3. Volver a la seguridad de la Biblioteca");
+
+						String opPasillo = sc.nextLine();
+						switch (opPasillo) {
+						case "1":
+							System.out.println(
+									"Entras. ¡Es Fluffy! Un perro gigante de tres cabezas te bloquea el paso.");
+							System.out.println("Está sobre una trampilla. ¿Qué haces?");
+							System.out.println("1. Cantar una nana para dormirlo");
+							System.out.println("2. Correr por tu vida");
+
+							String opFluffy = sc.nextLine();
+							if (opFluffy.equals("1")) {
+								if (rd.nextInt(100) < moral) {
+									System.out.println(
+											"Tu voz tiembla, pero la melodía funciona. Las cabezas caen dormidas.");
+									System.out.println("Miras bajo la trampilla y encuentras una botella dorada.");
+									if (!inventarioObjetos.contains("Felix Felicis")) {
+										System.out.println("¡Has obtenido FELIX FELICIS! (Suerte Líquida).");
+										inventarioObjetos.add("Felix Felicis");
+										moral += 20;
+										vida = 100;
+										System.out.println("Te sientes afortunado. Vida restaurada y Moral aumentada.");
+									} else {
+										System.out.println("Ya tienes la suerte líquida, no seas avaricioso.");
+									}
+								} else {
+									System.out.println("Desafinas de forma terriblee. fluffy despierta :( ");
+									if (esMyrtle) {
+										System.out.println("Fluffy intenta morderte con sus tres cabezas, pero sus fauces te atraviesan.");
+										System.out.println("Myrtle: ¡Uy, qué bruto!");
+										System.out.println("Fluffy confundido y se echa hacia atrás. Te salvas por estar muerta.");
+									} else {
+										System.out.println(
+												 " ███▄ ▄███▓ █    ██ ▓█████  ██▀███  ▓█████   ██████ \n"
+												+ "▓██▒▀█▀ ██▒ ██  ▓██▒▓█   ▀ ▓██ ▒ ██▒▓█   ▀ ▒██    ▒ \n"
+												+ "▓██    ▓██░▓██  ▒██░▒███   ▓██ ░▄█ ▒▒███   ░ ▓██▄   \n"
+												+ "▒██    ▒██ ▓▓█  ░██░▒▓█  ▄ ▒██▀▀█▄  ▒▓█  ▄   ▒   ██▒\n"
+												+ "▒██▒   ░██▒▒▒█████▓ ░▒████▒░██▓ ▒██▒░▒████▒▒██████▒▒\n"
+												+ "░ ▒░   ░  ░░▒▓▒ ▒ ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░░░ ▒░ ░▒ ▒▓▒ ▒ ░\n"
+												+ "░  ░      ░░░▒░ ░ ░  ░ ░  ░  ░▒ ░ ▒░ ░ ░  ░░ ░▒  ░ ░\n"
+												+ "░      ░    ░░░ ░ ░    ░     ░░   ░    ░   ░  ░  ░  \n"
+												+ "       ░      ░        ░  ░   ░        ░  ░      ░  \n"
+												+ "                                                    \n"
+												+ "                          █████▒                    \n"
+												+ "                        ▓██   ▒                     \n"
+												+ "                        ▒████ ░                     \n"
+												+ "                        ░▓█▒  ░                     \n"
+												+ "                        ░▒█░                        \n"
+												+ "                         ▒ ░                        \n"
+												+ "                         ░                          \n"
+												+ "                         ░ ░                        ");
+										System.out.println("Fluffy ruge y se lanza sobre ti antes de que puedas huir.");
+										System.out.println("Has terminado como juguete masticable para perro gigante.");
+										
+										vida = 0;
+										return;
+									}
+								}
+							} else {
+								System.out.println("Huyes antes de que te conviertas en comida para perros.");
+							}
+							break;
+						case "2":
+							System.out.println("Escuchas atentamente... Oyes música de arpa parando de repente.");
+							System.out.println("Alguien ha estado aquí antes que tú.");
+							break;
+						case "3":
+							zonaActual = "Biblioteca";
 							break;
 						default:
 							System.out.println("Opción no válida.");
