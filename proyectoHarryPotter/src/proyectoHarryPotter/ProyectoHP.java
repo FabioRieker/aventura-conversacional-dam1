@@ -1864,6 +1864,8 @@ public class ProyectoHP {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				
+				
 			}
 		}
 	}
