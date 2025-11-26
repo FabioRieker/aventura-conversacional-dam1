@@ -692,6 +692,7 @@ public class ProyectoHP {
 
 													// --- LÓGICA DE EFECTOS ---
 													if (esDobby && ataqueSeleccionado == ("Desarmar")
+													if (ataqueSeleccionado.equals("Desarmar")
 															&& inventarioObjetosBaron.contains("cabeza")
 															&& resultado == 0 || resultado == 1) {
 														inventarioObjetosBaron.remove("cabeza");
@@ -714,6 +715,7 @@ public class ProyectoHP {
 
 													// --- LÓGICA DE EFECTOS ---
 													if (esDobby && ataqueSeleccionado == ("Desarmar")
+													if (ataqueSeleccionado.equals("Desarmar")
 															&& inventarioObjetosBaron.contains("cabeza")
 															&& resultado == 0 || resultado == 1) {
 														System.out.println(
@@ -1149,11 +1151,14 @@ public class ProyectoHP {
 													// --- LÓGICA DE EFECTOS ---
 													if (esMyrtle && ataqueSeleccionado == ("Anima Vinculus") && resultado == 0
 															|| resultado == 1 && vida < 45 && vidaTula < 60) {
+													if (ataqueSeleccionado.equals("Anima Vinculus") && resultado == 0
+															|| resultado == 1) {
 														vida = (vida + vidaTula) / 2;
 														vidaTula = (vida + vidaTula) / 2;
 														System.out.println("¡Los combatientes compartieron su dolor!");
 													}
 													
+
 													turnoJugador = false; // Turno finalizado
 
 												} else {
@@ -1226,6 +1231,7 @@ public class ProyectoHP {
 											String nombreAtaque = inventarioHechizosTula.get(indiceAleatorio);
 											int danioBase = daniosHechizosTula.get(indiceAleatorio);
 											
+
 											System.out.println("La Acromántula ataca con: ¡" + nombreAtaque + "!");
 
 											// Calcular acierto
@@ -1259,6 +1265,7 @@ public class ProyectoHP {
 												}
 											}
 											
+
 											vida -= danioFinal;
 											if (vida < 0)
 												vida = 0;
