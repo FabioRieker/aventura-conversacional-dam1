@@ -691,7 +691,7 @@ public class ProyectoHP {
 													int danioFinal = 0;
 
 													// --- LÓGICA DE EFECTOS ---
-													if (ataqueSeleccionado.equals("Desarmar")
+													if (esDobby && ataqueSeleccionado == ("Desarmar")
 															&& inventarioObjetosBaron.contains("cabeza")
 															&& resultado == 0 || resultado == 1) {
 														inventarioObjetosBaron.remove("cabeza");
@@ -713,7 +713,7 @@ public class ProyectoHP {
 													}
 
 													// --- LÓGICA DE EFECTOS ---
-													if (ataqueSeleccionado.equals("Desarmar")
+													if (esDobby && ataqueSeleccionado == ("Desarmar")
 															&& inventarioObjetosBaron.contains("cabeza")
 															&& resultado == 0 || resultado == 1) {
 														System.out.println(
@@ -1122,6 +1122,11 @@ public class ProyectoHP {
 													// Determinar acierto
 													int resultado = rd.nextInt(3); // 0=Total, 1=Parcial, 2=Fallo
 													int danioFinal = 0;
+													
+													// --- LÓGICA DE EFECTOS ---
+													if (esEstudiante && ataqueSeleccionado == ("Incendio") && resultado == 0 || resultado == 1) {
+														danioBase = danioBase * 2;
+													}
 
 													if (resultado == 0) {
 														danioFinal = danioBase;
@@ -1142,13 +1147,13 @@ public class ProyectoHP {
 														vidaTula = 0;
 
 													// --- LÓGICA DE EFECTOS ---
-													if (ataqueSeleccionado.equals("Anima Vinculus") && resultado == 0
-															|| resultado == 1) {
+													if (esMyrtle && ataqueSeleccionado == ("Anima Vinculus") && resultado == 0
+															|| resultado == 1 && vida < 45 && vidaTula < 60) {
 														vida = (vida + vidaTula) / 2;
 														vidaTula = (vida + vidaTula) / 2;
 														System.out.println("¡Los combatientes compartieron su dolor!");
 													}
-
+													
 													turnoJugador = false; // Turno finalizado
 
 												} else {
@@ -1220,7 +1225,7 @@ public class ProyectoHP {
 											// Extraer nombre y daño con el mismo índice
 											String nombreAtaque = inventarioHechizosTula.get(indiceAleatorio);
 											int danioBase = daniosHechizosTula.get(indiceAleatorio);
-
+											
 											System.out.println("La Acromántula ataca con: ¡" + nombreAtaque + "!");
 
 											// Calcular acierto
@@ -1240,7 +1245,20 @@ public class ProyectoHP {
 											} else {
 												System.out.println(">> ¡Has esquivado el ataque!");
 											}
-
+											
+											// --- LÓGICA DE EFECTOS ---
+											if (nombreAtaque == ("Picadura") && resultado == 0 || resultado == 1) {
+												if(inventarioObjetos.contains("Poción de Vida")){
+												vidaTula += 20;
+												inventarioObjetos.remove("Poción de Vida");
+												System.out.println("La Acromántula te roba la Poción de Vida y se cura 20 HP.");
+												}else if (inventarioObjetos.contains("Vendas")) {
+													vidaTula += 10;
+													inventarioObjetos.remove("Vendas");
+													System.out.println("La Acromántula te roba las vendas y se cura 10 HP.");
+												}
+											}
+											
 											vida -= danioFinal;
 											if (vida < 0)
 												vida = 0;
