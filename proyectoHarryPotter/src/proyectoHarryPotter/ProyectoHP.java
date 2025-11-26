@@ -573,6 +573,13 @@ public class ProyectoHP {
 				boolean explorando = true;
 
 				while (explorando) {
+					if (rd.nextInt(100) < 15) {
+						System.out.println("\n¡Peeves el Poltergeist aparece de la nada!");
+						System.out.println("Peeves: '¡Tontos, bobos, mocosos!' Te tira tizas a la cara.");
+						int danioPeeves = rd.nextInt(5) + 1;
+						vida -= danioPeeves;
+						System.out.println("Pierdes " + danioPeeves + " de vida por la humillación.");
+					}
 
 					// condicion para el FINAL, el contador de historia debe llegar a 5 y el usuario
 					// debe conseguir abrir la puerta
@@ -598,7 +605,16 @@ public class ProyectoHP {
 						System.out.println("4. Salir a los Terrenos del Castillo");
 						System.out.println("5. Ver Estado e Inventario");
 
+						
 						String op = sc.nextLine();
+						//Esto es un codigo secreto que añade el hechizo Avada Kedavra, y te da atope de vida. Flow codigo konami
+						if (op.equals("travesura realizada")) {
+							System.out.println("¡El Mapa del Merodeador te revela secretos!");
+							inventarioHechizos.add("Avada Kedavra");
+							daniosHechizos.add(100);
+							vida = 999;
+							System.out.println("Has obtenido poder ilimitado.");
+						}
 						switch (op) {
 						case "1":
 							zonaActual = "Gran Comedor";
@@ -629,6 +645,7 @@ public class ProyectoHP {
 						System.out.println("1. Hablar con el Barón Sanguinario");
 						System.out.println("2. Comer algo (Recuperar Vida)");
 						System.out.println("3. Volver al Vestíbulo");
+						System.out.println("4. Ir a los barriles de la cocina (Sala Común Hufflepuff)");
 
 						String opComedor = sc.nextLine();
 						switch (opComedor) {
@@ -838,9 +855,24 @@ public class ProyectoHP {
 						case "3":
 							zonaActual = "Vestíbulo";
 							break;
+
+						case "4":
+							if (casa.equals("Hufflepuff")) {
+								System.out
+										.println("Tocas el barril al ritmo del hipno de Hufflepuff. La tapa se abre ");
+								System.out.println("Es un lugar cálido y lleno de plantas. Te relajas profundamente.");
+								System.out.println("Recuperas moral");
+								moral += 10;
+
+							} else {
+								System.out.println("Golpeas un barril y te rocía de vinagre. No eres de Hufflepuff.");
+								moral -= 5;
+								break;
+							}
 						default:
 							System.out.println("Opción no válida.");
 						}
+
 						break;
 
 					case "Pasillo Mazmorras":
@@ -848,6 +880,7 @@ public class ProyectoHP {
 						System.out.println("1. Intentar entrar en el Aula de Pociones");
 						System.out.println("2. Usar 'Alohomora' en la puerta encadenada");
 						System.out.println("3. Volver al Vestíbulo");
+						System.out.println("4. Murmurar contraseña al muro (Sala Común Slytherin)");
 
 						String opMaz = sc.nextLine();
 						switch (opMaz) {
@@ -871,6 +904,19 @@ public class ProyectoHP {
 						case "3":
 							zonaActual = "Vestíbulo";
 							break;
+
+						case "4":
+							if (casa.equals("Slytherin")) {
+								System.out.println("Susurras 'Sangre Pura'. La serpiente de piedra se mueve.");
+								System.out.println("La sala verde y plateada bajo el lago te hace sentir poderoso.");
+								System.out.println("Tu ambición crece. +20 de Moral.");
+								moral += 20;
+							} else {
+								System.out.println("El muro no se mueve. Un alumno de Slytherin se ríe de ti.");
+								moral -= 10;
+							}
+							break;
+
 						default:
 							System.out.println("Opción no válida.");
 						}
@@ -883,6 +929,7 @@ public class ProyectoHP {
 						System.out.println("3. Subir a la Torre de Astronomía");
 						System.out.println("4. Ir al Séptimo Piso (Sala de los Menesteres)");
 						System.out.println("5. Bajar al Vestíbulo");
+						System.out.println("6. Retrato de la Señora Gorda");
 
 						String opEscalera = sc.nextLine();
 						switch (opEscalera) {
@@ -911,6 +958,17 @@ public class ProyectoHP {
 						case "5":
 							zonaActual = "Vestíbulo";
 							break;
+						case "6":
+							if (casa.equals("Gryffindor")) {
+								System.out.println("Dices 'Caput Draconis'. El retrato gira.");
+								System.out.println("El fuego crepita en la sala circular. Te sientes valiente.");
+								System.out.println("Recuperas moral.");
+								moral += 20;
+							} else {
+								System.out.println("La Señora Gorda no te deja pasar: '¡Contraseña incorrecta!'");
+							}
+							break;
+
 						default:
 							System.out.println("Opción no válida.");
 						}
@@ -1048,7 +1106,8 @@ public class ProyectoHP {
 						}
 
 						System.out.println("Lanzas el hechizo 'lumus' lo cual ilumina el camino.");
-						System.out.println("Ves unas plantas extrañas, un sendero serpenteante, y en la lejanía vislumbras algo en la oscuridad del bosque");
+						System.out.println(
+								"Ves unas plantas extrañas, un sendero serpenteante, y en la lejanía vislumbras algo en la oscuridad del bosque");
 						System.out.println("Que quieres hacer:");
 						System.out.println("1. Adentrarse en lo profundo");
 						System.out.println("2. Buscar plantas raras");
@@ -1252,9 +1311,9 @@ public class ProyectoHP {
 							inventarioObjetos.add("Dictamo");
 							break;
 						case "3":
-							
-			
-							System.out.println("Te encuentras con un pequeño labubu adorable, el cuál te saca los dientes y te ataca  \n ");
+
+							System.out.println(
+									"Te encuentras con un pequeño labubu adorable, el cuál te saca los dientes y te ataca  \n ");
 							if (esMyrtle) {
 								System.out.println("El Labubu intenta morderte, pero sus dientes te atraviesan.");
 								System.out.println("Myrtle: ¡Jiji! ¡Qué cosita más tonta, no puedes herirme!");
@@ -1293,16 +1352,13 @@ public class ProyectoHP {
 										+ " ░ ░  ░    ░   ░  ░  ░    ░   ▒      ░   ░ ░ ░ ░   ░   ░░   ░   ░   ▒   	░ ░  ░ ░ ░ ░ ▒				\n"
 										+ "   ░       ░  ░      ░        ░  ░         ░       ░    ░           ░  ░							\n"
 										+ " ░                                                                      ");
-								
+
 								System.out.println("Has muerto devorado por una criatura adorable.");
 								vida = 0;
 								return;
 							}
 							break;
-							
-						
-						
-							
+
 						case "4":
 							zonaActual = "Terrenos";
 							break;
@@ -1315,7 +1371,8 @@ public class ProyectoHP {
 						System.out.println("La brisa nocturna es fuerte. Neville está aburrido.");
 						System.out.println("1. Hablar con Neville.");
 						System.out.println("2. Mirar por el telescopio.");
-						System.out.println("3. Bajar.");
+						System.out.println("3. Puerta del Águila ");
+						System.out.println("4. Bajar.");
 
 						String opTorre = sc.nextLine();
 						switch (opTorre) {
@@ -1388,7 +1445,23 @@ public class ProyectoHP {
 						case "2":
 							System.out.println("Ves la Marca Tenebrosa en el cielo. El tiempo se acaba.");
 							break;
+							
 						case "3":
+							if (casa.equals("Ravenclaw")) {
+								System.out.println("La estatua te formula una pregunta: '¿Qué fue antes, el fénix o la llama?'.");
+								System.out.println("Respondes correctamente. La puerta se abre.");
+								System.out.println("Las vistas son increíbles. Tu mente se despeja.");
+								System.out.println("Ganas un objeto 'Pergamino Antiguo' si no lo tenías.");
+								if (!inventarioObjetos.contains("Pergamino Antiguo")) {
+									inventarioObjetos.add("Pergamino Antiguo");
+								}
+								moral += 20;
+							} else {
+								System.out.println("No sabes la respuesta al acertijo. Te quedas fuera.");
+								moral -= 5;
+							}
+							break;
+						case "4":
 							zonaActual = "Gran Escalera";
 							break;
 						default:
