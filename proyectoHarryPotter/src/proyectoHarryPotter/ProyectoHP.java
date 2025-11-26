@@ -1,3 +1,4 @@
+
 package proyectoHarryPotter;
 
 import java.util.ArrayList;
@@ -130,7 +131,7 @@ public class ProyectoHP {
 				inventarioHechizosTula.add("Plancha");
 				daniosHechizosTula.add(18);
 
-				// Mago malo maloso (CODIGO DE MATEO INTEGRADO)
+				// Mago malo maloso
 				ArrayList<String> inventarioObjetosMago = new ArrayList<>();
 				ArrayList<String> inventarioHechizosMago = new ArrayList<>();
 				ArrayList<Integer> daniosHechizosMago = new ArrayList<>();
@@ -1374,7 +1375,6 @@ public class ProyectoHP {
 										+ "▒██    ▒██ ▓▓█  ░██░▒▓█  ▄ ▒██▀▀█▄  ▒▓█  ▄   ▒   ██▒                    \n"
 										+ "▒██▒   ░██▒▒▒█████▓ ░▒████▒░██▓ ▒██▒░▒████▒▒██████▒▒                    \n"
 										+ "░ ▒░   ░  ░░▒▓▒ ▒ ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░░░ ▒░ ░▒ ▒▓▒ ▒ ░                    \n"
-										+ "░  ░      ░░░▒░ ░ ░  ░ ░  ░  ░▒ ░ ▒░ ░ ░  ░░ ░▒  ░ ░                    \n"
 										+ "░      ░    ░░░ ░ ░    ░     ░░   ░    ░   ░  ░  ░                      \n"
 										+ "       ░      ░        ░  ░   ░        ░  ░      ░                      \n"
 										+ "                                                                        \n"
@@ -1384,8 +1384,7 @@ public class ProyectoHP {
 										+ "      ░██▄▄▄▄██ ▒▓▓▄ ▄██▒░██▄▄▄▄██ ▒██░█▀  ░██▄▄▄▄██   ▒   ██▒          \n"
 										+ "       ▓█   ▓██▒▒ ▓███▀ ░ ▓█   ▓██▒░▓█  ▀█▓ ▓█   ▓██▒▒██████▒▒          \n"
 										+ "       ▒▒   ▓▒█░░ ░▒ ▒  ░ ▒▒   ▓▒█░░▒▓███▀▒ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░          \n"
-										+ "        ▒   ▒▒ ░  ░  ▒     ▒   ▒▒ ░▒░▒   ░   ▒   ▒▒ ░░ ░▒  ░ ░          \n"
-										+ "        ░   ▒   ░          ░   ▒    ░    ░   ░   ▒   ░  ░  ░            \n"
+										+ "        ▒   ▒▒ ░            ░   ▒    ░    ░   ░   ▒   ░  ░  ░            \n"
 										+ "            ░  ░░ ░            ░  ░ ░            ░  ░      ░            \n"
 										+ "                ░                        ░                              \n"
 										+ "▓█████▄ ▓█████   ██████  ▄▄▄       ███▄    █   ▄████  ██▀███   ▄▄▄      ▓█████▄  ▒█████  					\n"
@@ -1395,7 +1394,7 @@ public class ProyectoHP {
 										+ "░▒████▓ ░▒████▒▒██████▒▒ ▓█   ▓██▒▒██░   ▓██░░▒▓███▀▒░██▓ ▒██▒ ▓█   ▓██░▒████▓ ░ ████▓▒░				\n"
 										+ " ▒▒▓  ▒ ░░ ▒░ ░▒ ▒▓▒ ▒ ░ ▒▒   ▓▒█░░ ▒░   ▒ ▒  ░▒   ▒ ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░	▒▒▓  ▒ ░ ▒░▒░▒░				\n"
 										+ " ░ ▒  ▒  ░ ░  ░░ ░▒  ░ ░  ▒   ▒▒ ░░ ░░   ░ ▒░  ░   ░   ░▒ ░ ▒░  ▒   ▒▒ ░	░ ▒  ▒   ░ ▒ ▒░				\n"
-										+ " ░ ░  ░    ░   ░  ░    ░   ▒      ░   ░ ░ ░ ░   ░   ░░   ░   ░   ▒   	░ ░  ░ ░ ░ ░ ▒				\n"
+										+ " ░ ░  ░    ░   ░  ░      ░   ▒      ░   ░ ░ ░ ░   ░   ░░   ░   ░   ▒   	░ ░  ░ ░ ░ ░ ▒				\n"
 										+ "   ░       ░  ░      ░        ░  ░         ░       ░    ░           ░  ░							\n"
 										+ " ░                                                                      ");
 
@@ -1558,14 +1557,15 @@ public class ProyectoHP {
 										System.out.println(
 												"Fluffy gime confundido y se echa hacia atrás. Te salvas por estar muerta.");
 									} else {
-										System.out.println(" ███▄ ▄███▓ █    ██ ▓█████  ██▀███  ▓█████   ██████ \n"
+										System.out.println(
+												 " ███▄ ▄███▓ █    ██ ▓█████  ██▀███  ▓█████   ██████ \n"
 												+ "▓██▒▀█▀ ██▒ ██  ▓██▒▓█   ▀ ▓██ ▒ ██▒▓█   ▀ ▒██    ▒ \n"
 												+ "▓██    ▓██░▓██  ▒██░▒███   ▓██ ░▄█ ▒▒███   ░ ▓██▄   \n"
 												+ "▒██    ▒██ ▓▓█  ░██░▒▓█  ▄ ▒██▀▀█▄  ▒▓█  ▄   ▒   ██▒\n"
 												+ "▒██▒   ░██▒▒▒█████▓ ░▒████▒░██▓ ▒██▒░▒████▒▒██████▒▒\n"
 												+ "░ ▒░   ░  ░░▒▓▒ ▒ ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░░░ ▒░ ░▒ ▒▓▒ ▒ ░\n"
 												+ "░  ░      ░░░▒░ ░ ░  ░ ░  ░  ░▒ ░ ▒░ ░ ░  ░░ ░▒  ░ ░\n"
-												+ "░      ░    ░░░ ░ ░    ░     ░░   ░    ░   ░   ░  ░  \n"
+												+ "░      ░    ░░░ ░ ░    ░     ░░   ░    ░   ░  ░  ░  \n"
 												+ "       ░      ░        ░  ░   ░        ░  ░      ░  \n"
 												+ "                                                    \n"
 												+ "                          █████▒                    \n"
@@ -1578,7 +1578,7 @@ public class ProyectoHP {
 												+ "                         ░ ░                        ");
 										System.out.println("Fluffy ruge y se lanza sobre ti antes de que puedas huir.");
 										System.out.println("Has terminado como juguete masticable para perro gigante.");
-
+										
 										vida = 0;
 										return;
 									}
@@ -1611,7 +1611,7 @@ public class ProyectoHP {
 				// FINAL DEL JUEGO - COMBATE CONTRA EL MAGO (Versión completa de Mateo)
 				System.out.println("\nLlegas a la Sala de los Menesteres. El ritual ha comenzado.");
 				// aqui faltaria la escena de combate y algun dialogo con el mago malo maloso
-
+				
 				System.out.println("¡Comienza la batalla!");
 
 				// DECIDIR QUIÉN EMPIEZA
@@ -1670,11 +1670,12 @@ public class ProyectoHP {
 
 								if (resultado == 0) {
 									danioFinal = danioBase;
-									System.out
-											.println(">> ¡Impacto Directo! El Mago recibe " + danioFinal + " de daño.");
+									System.out.println(">> ¡Impacto Directo! El Mago recibe " + danioFinal
+											+ " de daño.");
 								} else if (resultado == 1) {
 									danioFinal = danioBase / 2;
-									System.out.println(">> El Mago se cubre. Recibe " + danioFinal + " de daño.");
+									System.out.println(
+											">> El Mago se cubre. Recibe " + danioFinal + " de daño.");
 								} else {
 									System.out.println(">> ¡El Mago esquivó tu ataque!");
 								}
@@ -1690,7 +1691,7 @@ public class ProyectoHP {
 								vidaMago -= danioFinal;
 								if (vidaMago < 0)
 									vidaMago = 0;
-
+								
 								// --- LÓGICA DE EFECTOS ---
 								if (esMyrtle && ataqueSeleccionado == ("Anima Vinculus") && resultado == 0
 										|| resultado == 1 && vida < 45 && vidaMago < 75) {
@@ -1699,7 +1700,7 @@ public class ProyectoHP {
 									vidaMago = (vida + vidaMago) / 2;
 									System.out.println("¡Los combatientes compartieron su dolor!");
 								}
-
+								
 								if (vidaMago < 38 && vidaMago > 0) {
 									System.out.println("¡Los hechizos del Mago se han potenciado por la rabia!");
 								}
@@ -1746,8 +1747,7 @@ public class ProyectoHP {
 									int cura = 10; // Cantidad que cura
 									vida += cura;
 								} else if (objetoElegido.equals("Colmillo Acromántula")) {
-									System.out.println(
-											"Clavas el colmillo en el mago. Su vitalidad disminuye drásticamente.");
+									System.out.println("Clavas el colmillo en el mago. Su vitalidad disminuye drásticamente.");
 									vidaMago -= 25;
 								} else {
 									System.out.println(">> Este objeto no parece tener efecto en combate.");
@@ -1778,7 +1778,7 @@ public class ProyectoHP {
 						// Extraer nombre y daño con el mismo índice
 						String nombreAtaque = inventarioHechizosMago.get(indiceAleatorio);
 						int danioBase = daniosHechizosMago.get(indiceAleatorio);
-
+						
 						// Si el mago tiene menos de la mitad de la vida, pega el doble
 						if (vidaMago < 38) {
 							danioBase = danioBase * 2;
@@ -1792,14 +1792,16 @@ public class ProyectoHP {
 
 						if (resultado == 0) {
 							danioFinal = danioBase;
-							System.out.println(">> ¡Te golpea brutalmente! Recibes " + danioFinal + " de daño.");
+							System.out.println(
+									">> ¡Te golpea brutalmente! Recibes " + danioFinal + " de daño.");
 						} else if (resultado == 1) {
 							danioFinal = danioBase / 2;
-							System.out.println(">> Te cubres a tiempo. Recibes solo " + danioFinal + " de daño.");
+							System.out.println(
+									">> Te cubres a tiempo. Recibes solo " + danioFinal + " de daño.");
 						} else {
 							System.out.println(">> ¡Has esquivado el ataque!");
 						}
-
+						
 						// --- LÓGICA DE EFECTOS ---
 						if (nombreAtaque == ("Exanimus") && resultado == 0 || resultado == 1) {
 							vidaMago += 12;
