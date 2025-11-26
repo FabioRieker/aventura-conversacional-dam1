@@ -129,7 +129,7 @@ public class ProyectoHP {
 				// Índice 2
 				inventarioHechizosTula.add("Plancha");
 				daniosHechizosTula.add(18);
-				
+
 				// Mago malo maloso
 				ArrayList<String> inventarioObjetosMago = new ArrayList<>();
 				ArrayList<String> inventarioHechizosMago = new ArrayList<>();
@@ -139,14 +139,13 @@ public class ProyectoHP {
 				// Hechizos Mago
 				// Índice 0
 				inventarioHechizosMago.add("Fragorem");
-				daniosHechizosMago.add(6);
+				daniosHechizosMago.add(8);
 				// Índice 1
 				inventarioHechizosMago.add("Nebula Mortem");
-				daniosHechizosMago.add(12);
+				daniosHechizosMago.add(16);
 				// Índice 2
 				inventarioHechizosMago.add("Exanimus");
-				daniosHechizosMago.add(18);
-				
+				daniosHechizosMago.add(24);
 
 				// Navegacion
 				String zonaActual = "Vestíbulo";
@@ -634,6 +633,7 @@ public class ProyectoHP {
 							System.out.println("Vida: " + vida + " | Moral: " + moral);
 							System.out.println("Objetos: " + inventarioObjetos);
 							System.out.println("Hechizos: " + inventarioHechizos);
+							System.out.println("HechizosMO: " + inventarioHechizosMO);
 							System.out.println("Progreso: " + contadorHistoria + "/5");
 							break;
 						default:
@@ -877,7 +877,7 @@ public class ProyectoHP {
 							moral -= 5;
 							break;
 						case "2":
-							if (inventarioHechizos.contains("Alohomora")) {
+							if (inventarioHechizosMO.contains("Alohomora")) {
 								System.out.println("¡Click! Las cadenas caen. Entras a la Cámara Oculta.");
 								System.out.println("Encuentras un HORROCRUX FALSO y una nota importante.");
 								if (!inventarioObjetos.contains("Horrocrux Falso")) {
@@ -948,9 +948,9 @@ public class ProyectoHP {
 						switch (opBiblio) {
 						case "1":
 							System.out.println("Lees el Libro 'Como aprender hechizos para tontos'");
-							if (!inventarioHechizos.contains("Alohomora")) {
+							if (!inventarioHechizosMO.contains("Alohomora")) {
 								System.out.println("¡Has aprendido ALOHOMORA! Ahora puedes abrir puertas cerradas.");
-								inventarioHechizos.add("Alohomora");
+								inventarioHechizosMO.add("Alohomora");
 							} else {
 								System.out.println("Ya te sabes este libro de memoria.");
 							}
@@ -1059,7 +1059,7 @@ public class ProyectoHP {
 
 					case "Bosque Prohibido":
 						System.out.println("Está muy oscurisisimo. Oyes ruidos de ramas rotas.");
-						boolean tieneLuz = inventarioHechizos.contains("Lumos") || esDobby || esMyrtle;
+						boolean tieneLuz = inventarioHechizosMO.contains("Lumos") || esDobby || esMyrtle;
 
 						if (!tieneLuz) {
 							System.out.println("¡Está demasiado oscuro! No puedes avanzar sin luz.");
@@ -1254,7 +1254,7 @@ public class ProyectoHP {
 										} else if (inventarioObjetos.contains("Vendas")) {
 											vidaTula += 10;
 											inventarioObjetos.remove("Vendas");
-											System.out.println("La Acromántula te roba las vendas y se cura 10 HP.");
+											System.out.println("La Acromántula te roba las Vendas y se cura 10 HP.");
 										}
 									}
 
@@ -1282,7 +1282,7 @@ public class ProyectoHP {
 								System.out.println("***********************************");
 								System.out.println("Encuentras un objeto oscuro en su nido.");
 								contadorHistoria += 2;
-
+								inventarioObjetos.add("Colmillo Acromántula");
 							}
 
 							break;
@@ -1310,7 +1310,7 @@ public class ProyectoHP {
 						case "1":
 
 							// Primero verificamos si ya tiene el hechizo para no repetir el acertijo
-							if (inventarioHechizos.contains("Lumos")) {
+							if (inventarioHechizosMO.contains("Lumos")) {
 								System.out.println("Neville: Ya te enseñé el hechizo, ¡ve a salvar el colegio!");
 							} else {
 								// Aqui es para nuestro estudiante to majo
@@ -1335,7 +1335,7 @@ public class ProyectoHP {
 									if (esCorrecto) {
 										System.out.println("Neville: ¡Correcto! Te voy a enseñar un hechizo útil.");
 										System.out.println("--- ¡HAS APRENDIDO LUMOS! ---");
-										inventarioHechizos.add("Lumos");
+										inventarioHechizosMO.add("Lumos");
 									} else {
 										System.out.println("Neville: Mmm... no me suena. Deberías estudiar más.");
 									}
@@ -1350,7 +1350,7 @@ public class ProyectoHP {
 										System.out.println(
 												"Neville: ¡Ay Myrtle deja de llorar! Toma, un hechizo para que veas en la oscuridad.");
 										System.out.println("--- ¡HAS APRENDIDO LUMOS! ---");
-										inventarioHechizos.add("Lumos");
+										inventarioHechizosMO.add("Lumos");
 									} else {
 										System.out.println(
 												"Neville: Myrtle, por favor, deja de llorar y vuelve en otro momento.");
@@ -1365,7 +1365,7 @@ public class ProyectoHP {
 									if (respuestaDobby.contains("calcetin") || respuestaDobby.contains("calcetín")) {
 										System.out.println("Neville: Jaja, muy bueno Dobby. Toma amigo, aprende esto.");
 										System.out.println("--- ¡HAS APRENDIDO LUMOS! ---");
-										inventarioHechizos.add("Lumos");
+										inventarioHechizosMO.add("Lumos");
 									} else {
 										System.out.println("Neville: ¡Dobby no te castigues! Inténtalo más tarde.");
 									}
@@ -1395,7 +1395,7 @@ public class ProyectoHP {
 				// FINAL DEL JUEGO
 				System.out.println("\nLlegas a la Sala de los Menesteres. El ritual ha comenzado.");
 				// aqui faltaria la escena de combate y algun dialogo con el mago malo maloso
-				
+
 				System.out.println("¡Comienza la batalla!");
 
 				// DECIDIR QUIÉN EMPIEZA
@@ -1446,20 +1446,19 @@ public class ProyectoHP {
 								// --- LÓGICA DE EFECTOS ---
 								if (esDobby && ataqueSeleccionado == ("Desarmar")
 
-										&& inventarioObjetosBaron.contains("cabeza") && resultado == 0
+										&& inventarioObjetosMago.contains("nariz") && resultado == 0
 										|| resultado == 1) {
-									inventarioObjetosBaron.remove("cabeza");
+									inventarioObjetosBaron.remove("nariz");
 									danioBase = danioBase * 2;
 								}
 
 								if (resultado == 0) {
 									danioFinal = danioBase;
-									System.out.println(">> ¡Impacto Directo! El Mago recibe " + danioFinal
-											+ " de daño.");
+									System.out
+											.println(">> ¡Impacto Directo! El Mago recibe " + danioFinal + " de daño.");
 								} else if (resultado == 1) {
 									danioFinal = danioBase / 2;
-									System.out.println(
-											">> El Mago se cubre. Recibe " + danioFinal + " de daño.");
+									System.out.println(">> El Mago se cubre. Recibe " + danioFinal + " de daño.");
 								} else {
 									System.out.println(">> ¡El Mago esquivó tu ataque!");
 								}
@@ -1467,14 +1466,27 @@ public class ProyectoHP {
 								// --- LÓGICA DE EFECTOS ---
 								if (esDobby && ataqueSeleccionado == ("Desarmar")
 
-										&& inventarioObjetosBaron.contains("cabeza") && resultado == 0
+										&& inventarioObjetosMago.contains("nariz") && resultado == 0
 										|| resultado == 1) {
-									System.out.println("La cabeza del Barón Sanguinario cayó al suelo.");
+									System.out.println("La nariz del Mago cayó al suelo.");
 								}
 
 								vidaMago -= danioFinal;
 								if (vidaMago < 0)
 									vidaMago = 0;
+
+								// --- LÓGICA DE EFECTOS ---
+								if (esMyrtle && ataqueSeleccionado == ("Anima Vinculus") && resultado == 0
+										|| resultado == 1 && vida < 45 && vidaMago < 75) {
+
+									vida = (vida + vidaMago) / 2;
+									vidaMago = (vida + vidaMago) / 2;
+									System.out.println("¡Los combatientes compartieron su dolor!");
+								}
+
+								if (vidaMago < 38) {
+									System.out.println("Los hechizos del Mago se han potenciado.");
+								}
 
 								turnoJugador = false; // Turno finalizado
 
@@ -1517,8 +1529,12 @@ public class ProyectoHP {
 								} else if (objetoElegido.equals("Vendas")) {
 									int cura = 10; // Cantidad que cura
 									vida += cura;
+								} else if (objetoElegido.equals("Colmillo Acromántula")) {
+									System.out.println("La vitalidad del Mago ha disminuido.");
+									vidaMago -= 25;
 								} else {
 									System.out.println(">> Este objeto no parece tener efecto en combate.");
+									continue;
 								}
 
 								// ELIMINAR EL OBJETO USADO
@@ -1538,16 +1554,20 @@ public class ProyectoHP {
 					// ------------------- TURNO DEL BARÓN (ENEMIGO) -------------------
 					else {
 						System.out.println("\n------------------------------------------------");
-						System.out.println("TURNO DEL BARÓN SANGUINARIO");
+						System.out.println("TURNO DEL MAGO");
 
 						// Selección aleatoria del ataque usando el tamaño de su lista
-						int indiceAleatorio = rd.nextInt(inventarioHechizosBaron.size());
+						int indiceAleatorio = rd.nextInt(inventarioHechizosMago.size());
 
 						// Extraer nombre y daño con el mismo índice
-						String nombreAtaque = inventarioHechizosBaron.get(indiceAleatorio);
-						int danioBase = daniosHechizosBaron.get(indiceAleatorio);
+						String nombreAtaque = inventarioHechizosMago.get(indiceAleatorio);
+						int danioBase = daniosHechizosMago.get(indiceAleatorio);
 
-						System.out.println("El Barón ataca con: ¡" + nombreAtaque + "!");
+						if (vidaMago < 38) {
+							danioBase = danioBase * 2;
+						}
+
+						System.out.println("El Mago ataca con: ¡" + nombreAtaque + "!");
 
 						// Calcular acierto
 						int resultado = rd.nextInt(3);
@@ -1555,14 +1575,18 @@ public class ProyectoHP {
 
 						if (resultado == 0) {
 							danioFinal = danioBase;
-							System.out.println(
-									">> ¡Te golpea brutalmente! Recibes " + danioFinal + " de daño.");
+							System.out.println(">> ¡Te golpea brutalmente! Recibes " + danioFinal + " de daño.");
 						} else if (resultado == 1) {
 							danioFinal = danioBase / 2;
-							System.out.println(
-									">> Te cubres a tiempo. Recibes solo " + danioFinal + " de daño.");
+							System.out.println(">> Te cubres a tiempo. Recibes solo " + danioFinal + " de daño.");
 						} else {
 							System.out.println(">> ¡Has esquivado el ataque!");
+						}
+
+						// --- LÓGICA DE EFECTOS ---
+						if (nombreAtaque == ("Exanimus") && resultado == 0 || resultado == 1) {
+							vidaMago += 12;
+							System.out.println("El Mago te roba vitalidad y se cura 12 HP.");
 						}
 
 						vida -= danioFinal;
@@ -1581,11 +1605,11 @@ public class ProyectoHP {
 					System.out.println("\n***********************************");
 					System.out.println("      HAS SIDO DERROTADO...");
 					System.out.println("***********************************");
-					vidaBaron = 45;
+					vidaBaron = 75;
 
 				} else {
 					System.out.println("\n***********************************");
-					System.out.println(" ¡HAS VENCIDO AL BARÓN SANGUINARIO!");
+					System.out.println(" ¡HAS VENCIDO AL MAGO!");
 					System.out.println("***********************************");
 
 				}
