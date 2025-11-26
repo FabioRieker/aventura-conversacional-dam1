@@ -11,24 +11,24 @@ public class ProyectoHP {
 
 		System.out.println("╔══════════════════════════════════════════════════════════════════════╗");
 		System.out.println(
-				"        			                                                                                         \n"
-						+ "                                                                                                    \n"
-						+ "      ▄ .▄ ▄▄▄· ▄▄▄  ▄▄▄   ▄· ▄▌     ▄▄▄·      ▄▄▄▄▄▄▄▄▄▄▄▄▄ .▄▄▄                                   \n"
-						+ "     ██▪▐█▐█ ▀█ ▀▄ █·▀▄ █·▐█▪██▌    ▐█ ▄█▪     •██  •██  ▀▄.▀·▀▄ █·                                 \n"
-						+ "     ██▀▐█▄█▀▀█ ▐▀▀▄ ▐▀▀▄ ▐█▌▐█▪     ██▀· ▄█▀▄  ▐█.▪ ▐█.▪▐▀▀▪▄▐▀▀▄                                  \n"
-						+ "     ██▌▐▀▐█ ▪▐▌▐█•█▌▐█•█▌ ▐█▀·.    ▐█▪·•▐█▌.▐▌ ▐█▌· ▐█▌·▐█▄▄▌▐█•█▌                                 \n"
-						+ "     ▀▀▀ · ▀  ▀ .▀  ▀.▀  ▀  ▀ •     .▀    ▀█▄▀▪ ▀▀▀  ▀▀▀  ▀▀▀ .▀  ▀                                 \n"
-						+ " ▄▄▄·  ▌ ▐·▄▄▄ . ▐ ▄ ▄▄▄▄▄▄• ▄▌▄▄▄   ▄▄▄·                                    \n"
-						+ "▐█ ▀█ ▪█·█▌▀▄.▀·•█▌▐█•██  █▪██▌▀▄ █·▐█ ▀█                                    \n"
-						+ "▄█▀▀█ ▐█▐█•▐▀▀▪▄▐█▐▐▌ ▐█.▪█▌▐█▌▐▀▀▄ ▄█▀▀█                                    \n"
-						+ "▐█ ▪▐▌ ███ ▐█▄▄▌██▐█▌ ▐█▌·▐█▄█▌▐█•█▌▐█ ▪▐▌                                   \n"
-						+ " ▀  ▀ . ▀   ▀▀▀ ▀▀ █▪ ▀▀▀  ▀▀▀ .▀  ▀ ▀  ▀                                    \n"
-						+ "     ▄▄·        ▐ ▄  ▌ ▐·▄▄▄ .▄▄▄  .▄▄ ·  ▄▄▄·  ▄▄· ▪         ▐ ▄  ▄▄▄· ▄▄▌  \n"
-						+ "    ▐█ ▌▪▪     •█▌▐█▪█·█▌▀▄.▀·▀▄ █·▐█ ▀. ▐█ ▀█ ▐█ ▌▪██ ▪     •█▌▐█▐█ ▀█ ██•  \n"
-						+ "    ██ ▄▄ ▄█▀▄ ▐█▐▐▌▐█▐█•▐▀▀▪▄▐▀▀▄ ▄▀▀▀█▄▄█▀▀█ ██ ▄▄▐█· ▄█▀▄ ▐█▐▐▌▄█▀▀█ ██▪  \n"
-						+ "    ▐███▌▐█▌.▐▌██▐█▌ ███ ▐█▄▄▌▐█•█▌▐█▄▪▐█▐█ ▪▐▌▐███▌▐█▌▐█▌.▐▌██▐█▌▐█ ▪▐▌▐█▌▐▌\n"
-						+ "    ·▀▀▀  ▀█▄▀▪▀▀ █▪. ▀   ▀▀▀ .▀  ▀ ▀▀▀▀  ▀  ▀ ·▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪ ▀  ▀ .▀▀▀      	                                                                                        \n"
-						+ "                                                                                                           ");
+				"        			                                                                                         \n"
+						+ "                                                                                                    \n"
+						+ "      ▄ .▄ ▄▄▄· ▄▄▄  ▄▄▄   ▄· ▄▌     ▄▄▄·      ▄▄▄▄▄▄▄▄▄▄▄▄▄ .▄▄▄                                   \n"
+						+ "     ██▪▐█▐█ ▀█ ▀▄ █·▀▄ █·▐█▪██▌    ▐█ ▄█▪     •██  •██  ▀▄.▀·▀▄ █·                                 \n"
+						+ "     ██▀▐█▄█▀▀█ ▐▀▀▄ ▐▀▀▄ ▐█▌▐█▪     ██▀· ▄█▀▄  ▐█.▪ ▐█.▪▐▀▀▪▄▐▀▀▄                                  \n"
+						+ "     ██▌▐▀▐█ ▪▐▌▐█•█▌▐█•█▌ ▐█▀·.    ▐█▪·•▐█▌.▐▌ ▐█▌· ▐█▌·▐█▄▄▌▐█•█▌                                 \n"
+						+ "     ▀▀▀ · ▀  ▀ .▀  ▀.▀  ▀  ▀ •     .▀    ▀█▄▀▪ ▀▀▀  ▀▀▀  ▀▀▀ .▀  ▀                                 \n"
+						+ " ▄▄▄·  ▌ ▐·▄▄▄ . ▐ ▄ ▄▄▄▄▄▄• ▄▌▄▄▄   ▄▄▄·                                    \n"
+						+ "▐█ ▀█ ▪█·█▌▀▄.▀·•█▌▐█•██  █▪██▌▀▄ █·▐█ ▀█                                    \n"
+						+ "▄█▀▀█ ▐█▐█•▐▀▀▪▄▐█▐▐▌ ▐█.▪█▌▐█▌▐▀▀▄ ▄█▀▀█                                    \n"
+						+ "▐█ ▪▐▌ ███ ▐█▄▄▌██▐█▌ ▐█▌·▐█▄█▌▐█•█▌▐█ ▪▐▌                                   \n"
+						+ " ▀  ▀ . ▀   ▀▀▀ ▀▀ █▪ ▀▀▀  ▀▀▀ .▀  ▀ ▀  ▀                                    \n"
+						+ "     ▄▄·        ▐ ▄  ▌ ▐·▄▄▄ .▄▄▄  .▄▄ ·  ▄▄▄·  ▄▄· ▪         ▐ ▄  ▄▄▄· ▄▄▌  \n"
+						+ "    ▐█ ▌▪▪     •█▌▐█▪█·█▌▀▄.▀·▀▄ █·▐█ ▀. ▐█ ▀█ ▐█ ▌▪██ ▪     •█▌▐█▐█ ▀█ ██•  \n"
+						+ "    ██ ▄▄ ▄█▀▄ ▐█▐▐▌▐█▐█•▐▀▀▪▄▐▀▀▄ ▄▀▀▀█▄▄█▀▀█ ██ ▄▄▐█· ▄█▀▄ ▐█▐▐▌▄█▀▀█ ██▪  \n"
+						+ "    ▐███▌▐█▌.▐▌██▐█▌ ███ ▐█▄▄▌▐█•█▌▐█▄▪▐█▐█ ▪▐▌▐███▌▐█▌▐█▌.▐▌██▐█▌▐█ ▪▐▌▐█▌▐▌\n"
+						+ "    ·▀▀▀  ▀█▄▀▪▀▀ █▪. ▀   ▀▀▀ .▀  ▀ ▀▀▀▀  ▀  ▀ ·▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪ ▀  ▀ .▀▀▀      	                                                                                        \n"
+						+ "                                                                                                           ");
 		System.out.println("╚═══════════════════════════════════════════════════════════════════════════════╝");
 
 		System.out.println();
@@ -129,6 +129,23 @@ public class ProyectoHP {
 				// Índice 2
 				inventarioHechizosTula.add("Plancha");
 				daniosHechizosTula.add(18);
+
+				// Mago malo maloso (CODIGO DE MATEO INTEGRADO)
+				ArrayList<String> inventarioObjetosMago = new ArrayList<>();
+				ArrayList<String> inventarioHechizosMago = new ArrayList<>();
+				ArrayList<Integer> daniosHechizosMago = new ArrayList<>();
+				int vidaMago = 75;
+				inventarioObjetosMago.add("nariz");
+				// Hechizos Mago
+				// Índice 0
+				inventarioHechizosMago.add("Fragorem");
+				daniosHechizosMago.add(8);
+				// Índice 1
+				inventarioHechizosMago.add("Nebula Mortem");
+				daniosHechizosMago.add(16);
+				// Índice 2
+				inventarioHechizosMago.add("Exanimus");
+				daniosHechizosMago.add(24);
 
 				// Navegacion
 				String zonaActual = "Vestíbulo";
@@ -565,7 +582,7 @@ public class ProyectoHP {
 				// A partir de aqui comienza lo que es el juego en si
 				System.out.println();
 				System.out.println("═════════════════════════════════════════════════╗");
-				System.out.println("       COMIENZA LA AVENTURA EN HOGWARTS          ║");
+				System.out.println("       COMIENZA LA AVENTURA EN HOGWARTS          ║");
 				System.out.println("═════════════════════════════════════════════════╝");
 				System.out.println("Debes investigar el castillo y fortalecerte antes de enfrentar al mal.");
 				System.out.println("Consejito: Aprende hechizos como 'Alohomora' para abrir nuevas zonas ;)");
@@ -573,11 +590,13 @@ public class ProyectoHP {
 				boolean explorando = true;
 
 				while (explorando) {
-					//Hace que salga un poltergeist que puede salir en todo el juego, en cualquier zona. Hay un 15 % de posibilidades de que salga, si sale se calcula el daño que te va a hacer
+					// Hace que salga un poltergeist que puede salir en todo el juego, en cualquier
+					// zona. Hay un 15 % de posibilidades de que salga, si sale se calcula el daño
+					// que te va a hacer
 					if (rd.nextInt(100) < 15) {
 						System.out.println("\n¡Peeves el Poltergeist aparece de la nada!");
 						System.out.println("Peeves: Mocosoo! Te tira tizas a la cara ");
-						//Calcula cuánto daño te va a hacer
+						// Calcula cuánto daño te va a hacer
 						int danioPeeves = rd.nextInt(5) + 1;
 						vida -= danioPeeves;
 						System.out.println("Pierdes " + danioPeeves + " de vida por la humillación.");
@@ -600,7 +619,8 @@ public class ProyectoHP {
 					// Switch principal el tocho
 					switch (zonaActual) {
 					case "Vestíbulo":
-						System.out.println("El gran vestibulo de entrada. Las antorchas iluminan las paredes de piedra.");
+						System.out
+								.println("El gran vestibulo de entrada. Las antorchas iluminan las paredes de piedra.");
 						System.out.println("1. Ir al Gran Comedor");
 						System.out.println("2. Bajar a las Mazmorras");
 						System.out.println("3. Subir por la Gran Escalera");
@@ -634,6 +654,7 @@ public class ProyectoHP {
 							System.out.println("Vida: " + vida + " | Moral: " + moral);
 							System.out.println("Objetos: " + inventarioObjetos);
 							System.out.println("Hechizos: " + inventarioHechizos);
+							System.out.println("HechizosMO: " + inventarioHechizosMO);
 							System.out.println("Progreso: " + contadorHistoria + "/5");
 
 							break;
@@ -838,7 +859,7 @@ public class ProyectoHP {
 							// ========================================================================
 							if (vida <= 0) {
 								System.out.println("\n***********************************");
-								System.out.println("      HAS SIDO DERROTADO...");
+								System.out.println("      HAS SIDO DERROTADO...");
 								System.out.println("***********************************");
 								vidaBaron = 45;
 
@@ -1285,6 +1306,20 @@ public class ProyectoHP {
 										System.out.println(">> ¡Has esquivado el ataque!");
 									}
 
+									// --- LÓGICA DE EFECTOS ---
+									if (nombreAtaque == ("Picadura") && resultado == 0 || resultado == 1) {
+										if (inventarioObjetos.contains("Poción de Vida")) {
+											vidaTula += 20;
+											inventarioObjetos.remove("Poción de Vida");
+											System.out.println(
+													"La Acromántula te roba la Poción de Vida y se cura 20 HP.");
+										} else if (inventarioObjetos.contains("Vendas")) {
+											vidaTula += 10;
+											inventarioObjetos.remove("Vendas");
+											System.out.println("La Acromántula te roba las Vendas y se cura 10 HP.");
+										}
+									}
+
 									vida -= danioFinal;
 									if (vida < 0)
 										vida = 0;
@@ -1299,7 +1334,7 @@ public class ProyectoHP {
 							// ========================================================================
 							if (vida <= 0) {
 								System.out.println("\n***********************************");
-								System.out.println("      HAS SIDO DERROTADO...");
+								System.out.println("      HAS SIDO DERROTADO...");
 								System.out.println("***********************************");
 								vidaTula = 60;
 
@@ -1309,7 +1344,11 @@ public class ProyectoHP {
 								System.out.println("***********************************");
 								System.out.println("Encuentras un objeto oscuro en su nido.");
 								contadorHistoria += 2;
-
+								// CAMBIO MATEO: Ahora da un colmillo
+								if (!inventarioObjetos.contains("Colmillo Acromántula")) {
+									inventarioObjetos.add("Colmillo Acromántula");
+									System.out.println("Has obtenido: Colmillo Acromántula");
+								}
 							}
 
 							break;
@@ -1320,7 +1359,7 @@ public class ProyectoHP {
 						case "3":
 
 							System.out.println(
-									"Te encuentras con un pequeño labubu adorable, el cuál te saca los dientes y te ataca  \n ");
+									"Te encuentras con un pequeño labubu adorable, el cuál te saca los dientes y te ataca  \n ");
 							if (esMyrtle) {
 								System.out.println("El Labubu intenta morderte, pero sus dientes te atraviesan.");
 								System.out.println("Myrtle: ¡Jiji! ¡Qué cosita más tonta, no puedes herirme!");
@@ -1329,36 +1368,36 @@ public class ProyectoHP {
 							} else {
 								System.out.println("El Labubu salta hacia tu cuello y todo se vuelve negro...");
 								System.out.println(" "
-										+ "███▄ ▄███▓ █    ██ ▓█████  ██▀███  ▓█████   ██████                     \n"
-										+ "▓██▒▀█▀ ██▒ ██  ▓██▒▓█   ▀ ▓██ ▒ ██▒▓█   ▀ ▒██    ▒                     \n"
-										+ "▓██    ▓██░▓██  ▒██░▒███   ▓██ ░▄█ ▒▒███   ░ ▓██▄                       \n"
-										+ "▒██    ▒██ ▓▓█  ░██░▒▓█  ▄ ▒██▀▀█▄  ▒▓█  ▄   ▒   ██▒                    \n"
-										+ "▒██▒   ░██▒▒▒█████▓ ░▒████▒░██▓ ▒██▒░▒████▒▒██████▒▒                    \n"
-										+ "░ ▒░   ░  ░░▒▓▒ ▒ ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░░░ ▒░ ░▒ ▒▓▒ ▒ ░                    \n"
-										+ "░  ░      ░░░▒░ ░ ░  ░ ░  ░  ░▒ ░ ▒░ ░ ░  ░░ ░▒  ░ ░                    \n"
-										+ "░      ░    ░░░ ░ ░    ░     ░░   ░    ░   ░  ░  ░                      \n"
-										+ "       ░      ░        ░  ░   ░        ░  ░      ░                      \n"
-										+ "                                                                        \n"
-										+ "       ▄▄▄       ▄████▄   ▄▄▄       ▄▄▄▄    ▄▄▄        ██████           \n"
-										+ "      ▒████▄    ▒██▀ ▀█  ▒████▄    ▓█████▄ ▒████▄    ▒██    ▒           \n"
-										+ "      ▒██  ▀█▄  ▒▓█    ▄ ▒██  ▀█▄  ▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄             \n"
-										+ "      ░██▄▄▄▄██ ▒▓▓▄ ▄██▒░██▄▄▄▄██ ▒██░█▀  ░██▄▄▄▄██   ▒   ██▒          \n"
-										+ "       ▓█   ▓██▒▒ ▓███▀ ░ ▓█   ▓██▒░▓█  ▀█▓ ▓█   ▓██▒▒██████▒▒          \n"
-										+ "       ▒▒   ▓▒█░░ ░▒ ▒  ░ ▒▒   ▓▒█░░▒▓███▀▒ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░          \n"
-										+ "        ▒   ▒▒ ░  ░  ▒     ▒   ▒▒ ░▒░▒   ░   ▒   ▒▒ ░░ ░▒  ░ ░          \n"
-										+ "        ░   ▒   ░          ░   ▒    ░    ░   ░   ▒   ░  ░  ░            \n"
-										+ "            ░  ░░ ░            ░  ░ ░            ░  ░      ░            \n"
-										+ "                ░                        ░                              \n"
-										+ "▓█████▄ ▓█████   ██████  ▄▄▄       ███▄    █   ▄████  ██▀███   ▄▄▄      ▓█████▄  ▒█████  					\n"
-										+ "▒██▀ ██▌▓█   ▀ ▒██    ▒ ▒████▄     ██ ▀█   █  ██▒ ▀█▒▓██ ▒ ██▒▒████▄    ▒██▀ ██▌▒██▒  ██▒				\n"
-										+ "░██   █▌▒███   ░ ▓██▄   ▒██  ▀█▄  ▓██  ▀█ ██▒▒██░▄▄▄░▓██ ░▄█ ▒▒██  ▀█▄  ░██   █▌▒██░  ██▒				\n"
-										+ "░▓█▄   ▌▒▓█  ▄   ▒   ██▒░██▄▄▄▄██ ▓██▒  ▐▌██▒░▓█  ██▓▒██▀▀█▄  ░██▄▄▄▄██ ░▓█▄   ▌▒██   ██░				\n"
-										+ "░▒████▓ ░▒████▒▒██████▒▒ ▓█   ▓██▒▒██░   ▓██░░▒▓███▀▒░██▓ ▒██▒ ▓█   ▓██░▒████▓ ░ ████▓▒░				\n"
-										+ " ▒▒▓  ▒ ░░ ▒░ ░▒ ▒▓▒ ▒ ░ ▒▒   ▓▒█░░ ▒░   ▒ ▒  ░▒   ▒ ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░	▒▒▓  ▒ ░ ▒░▒░▒░				\n"
-										+ " ░ ▒  ▒  ░ ░  ░░ ░▒  ░ ░  ▒   ▒▒ ░░ ░░   ░ ▒░  ░   ░   ░▒ ░ ▒░  ▒   ▒▒ ░	░ ▒  ▒   ░ ▒ ▒░				\n"
-										+ " ░ ░  ░    ░   ░  ░  ░    ░   ▒      ░   ░ ░ ░ ░   ░   ░░   ░   ░   ▒   	░ ░  ░ ░ ░ ░ ▒				\n"
-										+ "   ░       ░  ░      ░        ░  ░         ░       ░    ░           ░  ░							\n"
-										+ " ░                                                                      ");
+										+ "███▄ ▄███▓ █    ██ ▓█████  ██▀███  ▓█████   ██████                     \n"
+										+ "▓██▒▀█▀ ██▒ ██  ▓██▒▓█   ▀ ▓██ ▒ ██▒▓█   ▀ ▒██    ▒                     \n"
+										+ "▓██    ▓██░▓██  ▒██░▒███   ▓██ ░▄█ ▒▒███   ░ ▓██▄                       \n"
+										+ "▒██    ▒██ ▓▓█  ░██░▒▓█  ▄ ▒██▀▀█▄  ▒▓█  ▄   ▒   ██▒                    \n"
+										+ "▒██▒   ░██▒▒▒█████▓ ░▒████▒░██▓ ▒██▒░▒████▒▒██████▒▒                    \n"
+										+ "░ ▒░   ░  ░░▒▓▒ ▒ ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░░░ ▒░ ░▒ ▒▓▒ ▒ ░                    \n"
+										+ "░  ░      ░░░▒░ ░ ░  ░ ░  ░  ░▒ ░ ▒░ ░ ░  ░░ ░▒  ░ ░                    \n"
+										+ "░      ░    ░░░ ░ ░    ░     ░░   ░    ░   ░  ░  ░                      \n"
+										+ "       ░      ░        ░  ░   ░        ░  ░      ░                      \n"
+										+ "                                                                        \n"
+										+ "       ▄▄▄       ▄████▄   ▄▄▄       ▄▄▄▄    ▄▄▄        ██████           \n"
+										+ "      ▒████▄    ▒██▀ ▀█  ▒████▄    ▓█████▄ ▒████▄    ▒██    ▒           \n"
+										+ "      ▒██  ▀█▄  ▒▓█    ▄ ▒██  ▀█▄  ▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄             \n"
+										+ "      ░██▄▄▄▄██ ▒▓▓▄ ▄██▒░██▄▄▄▄██ ▒██░█▀  ░██▄▄▄▄██   ▒   ██▒          \n"
+										+ "       ▓█   ▓██▒▒ ▓███▀ ░ ▓█   ▓██▒░▓█  ▀█▓ ▓█   ▓██▒▒██████▒▒          \n"
+										+ "       ▒▒   ▓▒█░░ ░▒ ▒  ░ ▒▒   ▓▒█░░▒▓███▀▒ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░          \n"
+										+ "        ▒   ▒▒ ░  ░  ▒     ▒   ▒▒ ░▒░▒   ░   ▒   ▒▒ ░░ ░▒  ░ ░          \n"
+										+ "        ░   ▒   ░          ░   ▒    ░    ░   ░   ▒   ░  ░  ░            \n"
+										+ "            ░  ░░ ░            ░  ░ ░            ░  ░      ░            \n"
+										+ "                ░                        ░                              \n"
+										+ "▓█████▄ ▓█████   ██████  ▄▄▄       ███▄    █   ▄████  ██▀███   ▄▄▄      ▓█████▄  ▒█████  					\n"
+										+ "▒██▀ ██▌▓█   ▀ ▒██    ▒ ▒████▄     ██ ▀█   █  ██▒ ▀█▒▓██ ▒ ██▒▒████▄    ▒██▀ ██▌▒██▒  ██▒				\n"
+										+ "░██   █▌▒███   ░ ▓██▄   ▒██  ▀█▄  ▓██  ▀█ ██▒▒██░▄▄▄░▓██ ░▄█ ▒▒██  ▀█▄  ░██   █▌▒██░  ██▒				\n"
+										+ "░▓█▄   ▌▒▓█  ▄   ▒   ██▒░██▄▄▄▄██ ▓██▒  ▐▌██▒░▓█  ██▓▒██▀▀█▄  ░██▄▄▄▄██ ░▓█▄   ▌▒██   ██░				\n"
+										+ "░▒████▓ ░▒████▒▒██████▒▒ ▓█   ▓██▒▒██░   ▓██░░▒▓███▀▒░██▓ ▒██▒ ▓█   ▓██░▒████▓ ░ ████▓▒░				\n"
+										+ " ▒▒▓  ▒ ░░ ▒░ ░▒ ▒▓▒ ▒ ░ ▒▒   ▓▒█░░ ▒░   ▒ ▒  ░▒   ▒ ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░	▒▒▓  ▒ ░ ▒░▒░▒░				\n"
+										+ " ░ ▒  ▒  ░ ░  ░░ ░▒  ░ ░  ▒   ▒▒ ░░ ░░   ░ ▒░  ░   ░   ░▒ ░ ▒░  ▒   ▒▒ ░	░ ▒  ▒   ░ ▒ ▒░				\n"
+										+ " ░ ░  ░    ░   ░  ░    ░   ▒      ░   ░ ░ ░ ░   ░   ░░   ░   ░   ▒   	░ ░  ░ ░ ░ ░ ▒				\n"
+										+ "   ░       ░  ░      ░        ░  ░         ░       ░    ░           ░  ░							\n"
+										+ " ░                                                                      ");
 
 								System.out.println("Has muerto devorado por una criatura adorable.");
 								vida = 0;
@@ -1479,7 +1518,8 @@ public class ProyectoHP {
 					// nueva zona en dentro de la biblio hehe
 					case "Pasillo Tercer Piso":
 						System.out.println("El cartel indica:Prohibido el paso a quien no desee una muerte dolorosa");
-						System.out.println("Oyes una respiración pesada y tres gruñidos distintos detrás de la puerta.");
+						System.out
+								.println("Oyes una respiración pesada y tres gruñidos distintos detrás de la puerta.");
 						System.out.println("1. Entrar y enfrentarse a la bestia");
 						System.out.println("2. Pegar la oreja a la puerta");
 						System.out.println("3. Volver a la seguridad de la Biblioteca");
@@ -1511,32 +1551,34 @@ public class ProyectoHP {
 								} else {
 									System.out.println("Desafinas de forma terriblee. fluffy despierta :( ");
 									if (esMyrtle) {
-										System.out.println("Fluffy intenta morderte con sus tres cabezas, pero sus fauces te atraviesan.");
-										System.out.println("Myrtle: ¡Uy, qué bruto!");
-										System.out.println("Fluffy confundido y se echa hacia atrás. Te salvas por estar muerta.");
-									} else {
 										System.out.println(
-												 " ███▄ ▄███▓ █    ██ ▓█████  ██▀███  ▓█████   ██████ \n"
-												+ "▓██▒▀█▀ ██▒ ██  ▓██▒▓█   ▀ ▓██ ▒ ██▒▓█   ▀ ▒██    ▒ \n"
-												+ "▓██    ▓██░▓██  ▒██░▒███   ▓██ ░▄█ ▒▒███   ░ ▓██▄   \n"
-												+ "▒██    ▒██ ▓▓█  ░██░▒▓█  ▄ ▒██▀▀█▄  ▒▓█  ▄   ▒   ██▒\n"
-												+ "▒██▒   ░██▒▒▒█████▓ ░▒████▒░██▓ ▒██▒░▒████▒▒██████▒▒\n"
-												+ "░ ▒░   ░  ░░▒▓▒ ▒ ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░░░ ▒░ ░▒ ▒▓▒ ▒ ░\n"
-												+ "░  ░      ░░░▒░ ░ ░  ░ ░  ░  ░▒ ░ ▒░ ░ ░  ░░ ░▒  ░ ░\n"
-												+ "░      ░    ░░░ ░ ░    ░     ░░   ░    ░   ░  ░  ░  \n"
-												+ "       ░      ░        ░  ░   ░        ░  ░      ░  \n"
-												+ "                                                    \n"
-												+ "                          █████▒                    \n"
-												+ "                        ▓██   ▒                     \n"
-												+ "                        ▒████ ░                     \n"
-												+ "                        ░▓█▒  ░                     \n"
-												+ "                        ░▒█░                        \n"
-												+ "                         ▒ ░                        \n"
-												+ "                         ░                          \n"
-												+ "                         ░ ░                        ");
+												"Fluffy intenta morderte con sus tres cabezas, pero sus fauces te atraviesan.");
+										System.out
+												.println("Myrtle: ¡Uy, qué bruto! ¡Casi me despeinas el ectoplasma!'");
+										System.out.println(
+												"Fluffy gime confundido y se echa hacia atrás. Te salvas por estar muerta.");
+									} else {
+										System.out.println(" ███▄ ▄███▓ █    ██ ▓█████  ██▀███  ▓█████   ██████ \n"
+												+ "▓██▒▀█▀ ██▒ ██  ▓██▒▓█   ▀ ▓██ ▒ ██▒▓█   ▀ ▒██    ▒ \n"
+												+ "▓██    ▓██░▓██  ▒██░▒███   ▓██ ░▄█ ▒▒███   ░ ▓██▄   \n"
+												+ "▒██    ▒██ ▓▓█  ░██░▒▓█  ▄ ▒██▀▀█▄  ▒▓█  ▄   ▒   ██▒\n"
+												+ "▒██▒   ░██▒▒▒█████▓ ░▒████▒░██▓ ▒██▒░▒████▒▒██████▒▒\n"
+												+ "░ ▒░   ░  ░░▒▓▒ ▒ ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░░░ ▒░ ░▒ ▒▓▒ ▒ ░\n"
+												+ "░  ░      ░░░▒░ ░ ░  ░ ░  ░  ░▒ ░ ▒░ ░ ░  ░░ ░▒  ░ ░\n"
+												+ "░      ░    ░░░ ░ ░    ░     ░░   ░    ░   ░   ░  ░  \n"
+												+ "       ░      ░        ░  ░   ░        ░  ░      ░  \n"
+												+ "                                                    \n"
+												+ "                          █████▒                    \n"
+												+ "                        ▓██   ▒                     \n"
+												+ "                        ▒████ ░                     \n"
+												+ "                        ░▓█▒  ░                     \n"
+												+ "                        ░▒█░                        \n"
+												+ "                         ▒ ░                        \n"
+												+ "                         ░                          \n"
+												+ "                         ░ ░                        ");
 										System.out.println("Fluffy ruge y se lanza sobre ti antes de que puedas huir.");
 										System.out.println("Has terminado como juguete masticable para perro gigante.");
-										
+
 										vida = 0;
 										return;
 									}
@@ -1566,9 +1608,229 @@ public class ProyectoHP {
 					}
 				}
 
-				// FINAL DEL JUEGO
+				// FINAL DEL JUEGO - COMBATE CONTRA EL MAGO (Versión completa de Mateo)
 				System.out.println("\nLlegas a la Sala de los Menesteres. El ritual ha comenzado.");
 				// aqui faltaria la escena de combate y algun dialogo con el mago malo maloso
+
+				System.out.println("¡Comienza la batalla!");
+
+				// DECIDIR QUIÉN EMPIEZA
+				if (Math.random() < 0.5) {
+					turnoJugador = true;
+					System.out.println("\n>> Empieza el jugador");
+				} else {
+					turnoJugador = false;
+					System.out.println("\n>> Empieza el Mago");
+				}
+
+				// ========================================================================
+				// BUCLE DE COMBATE
+				// ========================================================================
+				while (vida > 0 && vidaMago > 0) {
+
+					// ------------------- TURNO DEL JUGADOR -------------------
+					if (turnoJugador) {
+						System.out.println("\n------------------------------------------------");
+						System.out.println("TU TURNO | Vida: " + vida + " | Mago: " + vidaMago);
+						System.out.println("¿Qué quieres hacer?");
+						System.out.println("1. Atacar");
+						System.out.println("2. Usar Objeto");
+
+						int accion = sc.nextInt();
+
+						// --- OPCIÓN 1: ATACAR ---
+						if (accion == 1) {
+							System.out.println("=== Hechizos disponibles ===");
+							for (int i = 0; i < inventarioHechizos.size(); i++) {
+								System.out.println((i + 1) + ". " + inventarioHechizos.get(i) + " (Daño: "
+										+ daniosHechizos.get(i) + ")");
+							}
+							System.out.println("Elige ataque:");
+							int opcionAtaque = sc.nextInt();
+
+							if (opcionAtaque >= 1 && opcionAtaque <= inventarioHechizos.size()) {
+								// Recuperar datos de las listas del jugador
+								String ataqueSeleccionado = inventarioHechizos.get(opcionAtaque - 1);
+								int danioBase = daniosHechizos.get(opcionAtaque - 1);
+
+								System.out.println("¡Has lanzado " + ataqueSeleccionado + "!");
+
+								// Determinar acierto
+								int resultado = rd.nextInt(3); // 0=Total, 1=Parcial, 2=Fallo
+								int danioFinal = 0;
+
+								// --- LÓGICA DE EFECTOS ---
+								if (esDobby && ataqueSeleccionado == ("Desarmar")
+
+										&& inventarioObjetosMago.contains("nariz") && resultado == 0
+										|| resultado == 1) {
+									inventarioObjetosMago.remove("nariz");
+									danioBase = danioBase * 2;
+								}
+
+								if (resultado == 0) {
+									danioFinal = danioBase;
+									System.out
+											.println(">> ¡Impacto Directo! El Mago recibe " + danioFinal + " de daño.");
+								} else if (resultado == 1) {
+									danioFinal = danioBase / 2;
+									System.out.println(">> El Mago se cubre. Recibe " + danioFinal + " de daño.");
+								} else {
+									System.out.println(">> ¡El Mago esquivó tu ataque!");
+								}
+
+								// --- LÓGICA DE EFECTOS ---
+								if (esDobby && ataqueSeleccionado == ("Desarmar")
+
+										&& inventarioObjetosMago.contains("nariz") && resultado == 0
+										|| resultado == 1) {
+									System.out.println("La nariz del Mago cayó al suelo.");
+								}
+
+								vidaMago -= danioFinal;
+								if (vidaMago < 0)
+									vidaMago = 0;
+
+								// --- LÓGICA DE EFECTOS ---
+								if (esMyrtle && ataqueSeleccionado == ("Anima Vinculus") && resultado == 0
+										|| resultado == 1 && vida < 45 && vidaMago < 75) {
+
+									vida = (vida + vidaMago) / 2;
+									vidaMago = (vida + vidaMago) / 2;
+									System.out.println("¡Los combatientes compartieron su dolor!");
+								}
+
+								if (vidaMago < 38 && vidaMago > 0) {
+									System.out.println("¡Los hechizos del Mago se han potenciado por la rabia!");
+								}
+
+								turnoJugador = false; // Turno finalizado
+
+							} else {
+								System.out.println("Ataque no válido. Vuelve a intentarlo.");
+								continue; // Reinicia el bucle sin cambiar turno
+							}
+
+							// --- OPCIÓN 2: USAR OBJETO ---
+						} else if (accion == 2) {
+							if (inventarioObjetos.isEmpty()) {
+								System.out.println("¡No tienes objetos en el inventario!");
+								continue; // Vuelve al menú
+							}
+
+							System.out.println("=== Inventario ===");
+							for (int i = 0; i < inventarioObjetos.size(); i++) {
+								System.out.println((i + 1) + ". " + inventarioObjetos.get(i));
+							}
+							System.out.println("0. Cancelar");
+
+							System.out.println("Elige objeto:");
+							int opcionObjeto = sc.nextInt();
+
+							if (opcionObjeto == 0) {
+								continue; // Cancelar y volver al menú principal
+							}
+
+							if (opcionObjeto >= 1 && opcionObjeto <= inventarioObjetos.size()) {
+								String objetoElegido = inventarioObjetos.get(opcionObjeto - 1);
+								System.out.println("Usaste: " + objetoElegido);
+
+								// --- LÓGICA DE EFECTOS ---
+								if (objetoElegido.equals("Poción de Vida")) {
+									int cura = 20; // Cantidad que cura
+									vida += cura;
+									System.out.println(">> ¡Recuperas " + cura + " de vida!");
+								} else if (objetoElegido.equals("Calcetín")) {
+									System.out.println(">> Te pones el calcetín. No pasa nada.");
+								} else if (objetoElegido.equals("Vendas")) {
+									int cura = 10; // Cantidad que cura
+									vida += cura;
+								} else if (objetoElegido.equals("Colmillo Acromántula")) {
+									System.out.println(
+											"Clavas el colmillo en el mago. Su vitalidad disminuye drásticamente.");
+									vidaMago -= 25;
+								} else {
+									System.out.println(">> Este objeto no parece tener efecto en combate.");
+								}
+
+								// ELIMINAR EL OBJETO USADO
+								inventarioObjetos.remove(opcionObjeto - 1);
+
+								turnoJugador = false; // Turno finalizado tras usar objeto
+							} else {
+								System.out.println("Opción inválida.");
+								continue;
+							}
+
+						} else {
+							System.out.println("Acción no reconocida.");
+							continue;
+						}
+					}
+					// ------------------- TURNO DEL MAGO (ENEMIGO) -------------------
+					else {
+						System.out.println("\n------------------------------------------------");
+						System.out.println("TURNO DEL MAGO");
+
+						// Selección aleatoria del ataque usando el tamaño de su lista
+						int indiceAleatorio = rd.nextInt(inventarioHechizosMago.size());
+
+						// Extraer nombre y daño con el mismo índice
+						String nombreAtaque = inventarioHechizosMago.get(indiceAleatorio);
+						int danioBase = daniosHechizosMago.get(indiceAleatorio);
+
+						// Si el mago tiene menos de la mitad de la vida, pega el doble
+						if (vidaMago < 38) {
+							danioBase = danioBase * 2;
+						}
+
+						System.out.println("El Mago ataca con: ¡" + nombreAtaque + "!");
+
+						// Calcular acierto
+						int resultado = rd.nextInt(3);
+						int danioFinal = 0;
+
+						if (resultado == 0) {
+							danioFinal = danioBase;
+							System.out.println(">> ¡Te golpea brutalmente! Recibes " + danioFinal + " de daño.");
+						} else if (resultado == 1) {
+							danioFinal = danioBase / 2;
+							System.out.println(">> Te cubres a tiempo. Recibes solo " + danioFinal + " de daño.");
+						} else {
+							System.out.println(">> ¡Has esquivado el ataque!");
+						}
+
+						// --- LÓGICA DE EFECTOS ---
+						if (nombreAtaque == ("Exanimus") && resultado == 0 || resultado == 1) {
+							vidaMago += 12;
+							System.out.println("El Mago te roba vitalidad y se cura 12 HP.");
+						}
+
+						vida -= danioFinal;
+						if (vida < 0)
+							vida = 0;
+						System.out.println("Tu vida restante: " + vida);
+
+						turnoJugador = true; // Le toca al jugador
+					}
+				}
+
+				// ========================================================================
+				// FIN DEL COMBATE
+				// ========================================================================
+				if (vida <= 0) {
+					System.out.println("\n***********************************");
+					System.out.println("      HAS SIDO DERROTADO...");
+					System.out.println("***********************************");
+					// Reset de vida del boss por si acaso
+					vidaMago = 75;
+
+				} else {
+					System.out.println("\n***********************************");
+					System.out.println(" ¡HAS VENCIDO AL MAGO!");
+					System.out.println("***********************************");
+
+				}
 
 				// Cálculo de finales según moral (HABRIA QUE REVISAR LA MORAL PORQUE PUSE
 				// NUMEROS UN POCO RANDOM, Y ALOMEJOR HABRIA QUE HACER QUE ALGUNAS DECISIONES
