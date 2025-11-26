@@ -1384,7 +1384,7 @@ public class ProyectoHP {
 										+ "      ░██▄▄▄▄██ ▒▓▓▄ ▄██▒░██▄▄▄▄██ ▒██░█▀  ░██▄▄▄▄██   ▒   ██▒          \n"
 										+ "       ▓█   ▓██▒▒ ▓███▀ ░ ▓█   ▓██▒░▓█  ▀█▓ ▓█   ▓██▒▒██████▒▒          \n"
 										+ "       ▒▒   ▓▒█░░ ░▒ ▒  ░ ▒▒   ▓▒█░░▒▓███▀▒ ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░          \n"
-										+ "        ▒   ▒▒ ░            ░   ▒    ░    ░   ░   ▒   ░  ░  ░            \n"
+										+ "        ▒   ▒▒ ░            ░   ▒    ░    ░   ░   ▒   ░  ░            \n"
 										+ "            ░  ░░ ░            ░  ░ ░            ░  ░      ░            \n"
 										+ "                ░                        ░                              \n"
 										+ "▓█████▄ ▓█████   ██████  ▄▄▄       ███▄    █   ▄████  ██▀███   ▄▄▄      ▓█████▄  ▒█████  					\n"
@@ -1412,193 +1412,6 @@ public class ProyectoHP {
 						}
 						break;
 
-					case "Torre Astronomía":
-						System.out.println("La brisa nocturna es fuerte. Neville está aburrido.");
-						System.out.println("1. Hablar con Neville.");
-						System.out.println("2. Mirar por el telescopio.");
-						System.out.println("3. Puerta del Águila ");
-						System.out.println("4. Bajar.");
-
-						String opTorre = sc.nextLine();
-						switch (opTorre) {
-
-						case "1":
-
-							// Primero verificamos si ya tiene el hechizo para no repetir el acertijo
-							if (inventarioHechizos.contains("Lumos")) {
-								System.out.println("Neville: Ya te enseñé el hechizo, ¡ve a salvar el colegio!");
-							} else {
-								// Aqui es para nuestro estudiante to majo
-								if (esEstudiante) {
-									System.out.println("Neville: ¿Te sabes la historia de Harry Potter?");
-									System.out.println("Neville: ¿Quién es el fundador de tu casa (" + casa + ")?");
-
-									String respuesta = sc.nextLine().toLowerCase();
-									boolean esCorrecto = false;
-
-									// Validamos la respuesta según la casa asignada por el sombrero
-									if (casa.equals("Gryffindor") && respuesta.contains("godric")) {
-										esCorrecto = true;
-									} else if (casa.equals("Slytherin") && respuesta.contains("salazar")) {
-										esCorrecto = true;
-									} else if (casa.equals("Ravenclaw") && respuesta.contains("rowena")) {
-										esCorrecto = true;
-									} else if (casa.equals("Hufflepuff") && respuesta.contains("helga")) {
-										esCorrecto = true;
-									}
-
-									if (esCorrecto) {
-										System.out.println("Neville: ¡Correcto! Te voy a enseñar un hechizo útil.");
-										System.out.println("--- ¡HAS APRENDIDO LUMOS! ---");
-										inventarioHechizos.add("Lumos");
-									} else {
-										System.out.println("Neville: Mmm... no me suena. Deberías estudiar más.");
-									}
-
-									// Myrtle la llorona
-								} else if (esMyrtle) {
-									System.out.println("Neville: ¿Qué criatura te mató en los baños?");
-									System.out.print("Respuesta: ");
-									String respuestaMyrtle = sc.nextLine().toLowerCase();
-
-									if (respuestaMyrtle.contains("basilisco")) {
-										System.out.println(
-												"Neville: ¡Ay Myrtle deja de llorar! Toma, un hechizo para que veas en la oscuridad.");
-										System.out.println("--- ¡HAS APRENDIDO LUMOS! ---");
-										inventarioHechizos.add("Lumos");
-									} else {
-										System.out.println(
-												"Neville: Myrtle, por favor, deja de llorar y vuelve en otro momento.");
-									}
-
-									// Dobby
-								} else if (esDobby) {
-									System.out.println("Neville: Hola Dobby, ¿trabajando tarde?");
-									System.out.print("¿Qué prenda te mantiene calentito? ");
-									String respuestaDobby = sc.nextLine().toLowerCase();
-
-									if (respuestaDobby.contains("calcetin") || respuestaDobby.contains("calcetín")) {
-										System.out.println("Neville: Jaja, muy bueno Dobby. Toma amigo, aprende esto.");
-										System.out.println("--- ¡HAS APRENDIDO LUMOS! ---");
-										inventarioHechizos.add("Lumos");
-									} else {
-										System.out.println("Neville: ¡Dobby no te castigues! Inténtalo más tarde.");
-									}
-								}
-							}
-							break;
-						case "2":
-							System.out.println("Ves la Marca Tenebrosa en el cielo. El tiempo se acaba.");
-							break;
-
-						case "3":
-							if (casa.equals("Ravenclaw")) {
-								System.out.println(
-										"La estatua te formula una pregunta: '¿Qué fue antes, el fénix o la llama?'.");
-								System.out.println("Respondes correctamente. La puerta se abre.");
-								System.out.println("Las vistas son increíbles. Tu mente se despeja.");
-								System.out.println("Ganas un objeto 'Pergamino Antiguo' si no lo tenías.");
-								if (!inventarioObjetos.contains("Pergamino Antiguo")) {
-									inventarioObjetos.add("Pergamino Antiguo");
-								}
-								moral += 20;
-							} else {
-								System.out.println("No sabes la respuesta al acertijo. Te quedas fuera.");
-								moral -= 5;
-							}
-							break;
-						case "4":
-							zonaActual = "Gran Escalera";
-							break;
-						default:
-							System.out.println("Opción no válida.");
-						}
-						break;
-					// nueva zona en dentro de la biblio hehe
-					case "Pasillo Tercer Piso":
-						System.out.println("El cartel indica:Prohibido el paso a quien no desee una muerte dolorosa");
-						System.out
-								.println("Oyes una respiración pesada y tres gruñidos distintos detrás de la puerta.");
-						System.out.println("1. Entrar y enfrentarse a la bestia");
-						System.out.println("2. Pegar la oreja a la puerta");
-						System.out.println("3. Volver a la seguridad de la Biblioteca");
-
-						String opPasillo = sc.nextLine();
-						switch (opPasillo) {
-						case "1":
-							System.out.println(
-									"Entras. ¡Es Fluffy! Un perro gigante de tres cabezas te bloquea el paso.");
-							System.out.println("Está sobre una trampilla. ¿Qué haces?");
-							System.out.println("1. Cantar una nana para dormirlo");
-							System.out.println("2. Correr por tu vida");
-
-							String opFluffy = sc.nextLine();
-							if (opFluffy.equals("1")) {
-								if (rd.nextInt(100) < moral) {
-									System.out.println(
-											"Tu voz tiembla, pero la melodía funciona. Las cabezas caen dormidas.");
-									System.out.println("Miras bajo la trampilla y encuentras una botella dorada.");
-									if (!inventarioObjetos.contains("Felix Felicis")) {
-										System.out.println("¡Has obtenido FELIX FELICIS! (Suerte Líquida).");
-										inventarioObjetos.add("Felix Felicis");
-										moral += 20;
-										vida = 100;
-										System.out.println("Te sientes afortunado. Vida restaurada y Moral aumentada.");
-									} else {
-										System.out.println("Ya tienes la suerte líquida, no seas avaricioso.");
-									}
-								} else {
-									System.out.println("Desafinas de forma terriblee. fluffy despierta :( ");
-									if (esMyrtle) {
-										System.out.println(
-												"Fluffy intenta morderte con sus tres cabezas, pero sus fauces te atraviesan.");
-										System.out
-												.println("Myrtle: ¡Uy, qué bruto! ¡Casi me despeinas el ectoplasma!'");
-										System.out.println(
-												"Fluffy gime confundido y se echa hacia atrás. Te salvas por estar muerta.");
-									} else {
-										System.out.println(
-												 " ███▄ ▄███▓ █    ██ ▓█████  ██▀███  ▓█████   ██████ \n"
-												+ "▓██▒▀█▀ ██▒ ██  ▓██▒▓█   ▀ ▓██ ▒ ██▒▓█   ▀ ▒██    ▒ \n"
-												+ "▓██    ▓██░▓██  ▒██░▒███   ▓██ ░▄█ ▒▒███   ░ ▓██▄   \n"
-												+ "▒██    ▒██ ▓▓█  ░██░▒▓█  ▄ ▒██▀▀█▄  ▒▓█  ▄   ▒   ██▒\n"
-												+ "▒██▒   ░██▒▒▒█████▓ ░▒████▒░██▓ ▒██▒░▒████▒▒██████▒▒\n"
-												+ "░ ▒░   ░  ░░▒▓▒ ▒ ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░░░ ▒░ ░▒ ▒▓▒ ▒ ░\n"
-												+ "░  ░      ░░░▒░ ░ ░  ░ ░  ░  ░▒ ░ ▒░ ░ ░  ░░ ░▒  ░ ░\n"
-												+ "░      ░    ░░░ ░ ░    ░     ░░   ░    ░   ░  ░  ░  \n"
-												+ "       ░      ░        ░  ░   ░        ░  ░      ░  \n"
-												+ "                                                    \n"
-												+ "                          █████▒                    \n"
-												+ "                        ▓██   ▒                     \n"
-												+ "                        ▒████ ░                     \n"
-												+ "                        ░▓█▒  ░                     \n"
-												+ "                        ░▒█░                        \n"
-												+ "                         ▒ ░                        \n"
-												+ "                         ░                          \n"
-												+ "                         ░ ░                        ");
-										System.out.println("Fluffy ruge y se lanza sobre ti antes de que puedas huir.");
-										System.out.println("Has terminado como juguete masticable para perro gigante.");
-										
-										vida = 0;
-										return;
-									}
-								}
-							} else {
-								System.out.println("Huyes antes de que te conviertas en comida para perros.");
-							}
-							break;
-						case "2":
-							System.out.println("Escuchas atentamente... Oyes música de arpa parando de repente.");
-							System.out.println("Alguien ha estado aquí antes que tú.");
-							break;
-						case "3":
-							zonaActual = "Biblioteca";
-							break;
-						default:
-							System.out.println("Opción no válida.");
-						}
-						break;
-
 					default:
 						// Si el jugador se va una zona que no existe en el mapa, lo devuelve al
 						// vestibulo
@@ -1611,7 +1424,7 @@ public class ProyectoHP {
 				// FINAL DEL JUEGO - COMBATE CONTRA EL MAGO (Versión completa de Mateo)
 				System.out.println("\nLlegas a la Sala de los Menesteres. El ritual ha comenzado.");
 				// aqui faltaria la escena de combate y algun dialogo con el mago malo maloso
-				
+
 				System.out.println("¡Comienza la batalla!");
 
 				// DECIDIR QUIÉN EMPIEZA
@@ -1670,12 +1483,11 @@ public class ProyectoHP {
 
 								if (resultado == 0) {
 									danioFinal = danioBase;
-									System.out.println(">> ¡Impacto Directo! El Mago recibe " + danioFinal
-											+ " de daño.");
+									System.out
+											.println(">> ¡Impacto Directo! El Mago recibe " + danioFinal + " de daño.");
 								} else if (resultado == 1) {
 									danioFinal = danioBase / 2;
-									System.out.println(
-											">> El Mago se cubre. Recibe " + danioFinal + " de daño.");
+									System.out.println(">> El Mago se cubre. Recibe " + danioFinal + " de daño.");
 								} else {
 									System.out.println(">> ¡El Mago esquivó tu ataque!");
 								}
@@ -1691,7 +1503,7 @@ public class ProyectoHP {
 								vidaMago -= danioFinal;
 								if (vidaMago < 0)
 									vidaMago = 0;
-								
+
 								// --- LÓGICA DE EFECTOS ---
 								if (esMyrtle && ataqueSeleccionado == ("Anima Vinculus") && resultado == 0
 										|| resultado == 1 && vida < 45 && vidaMago < 75) {
@@ -1700,7 +1512,7 @@ public class ProyectoHP {
 									vidaMago = (vida + vidaMago) / 2;
 									System.out.println("¡Los combatientes compartieron su dolor!");
 								}
-								
+
 								if (vidaMago < 38 && vidaMago > 0) {
 									System.out.println("¡Los hechizos del Mago se han potenciado por la rabia!");
 								}
@@ -1747,7 +1559,8 @@ public class ProyectoHP {
 									int cura = 10; // Cantidad que cura
 									vida += cura;
 								} else if (objetoElegido.equals("Colmillo Acromántula")) {
-									System.out.println("Clavas el colmillo en el mago. Su vitalidad disminuye drásticamente.");
+									System.out.println(
+											"Clavas el colmillo en el mago. Su vitalidad disminuye drásticamente.");
 									vidaMago -= 25;
 								} else {
 									System.out.println(">> Este objeto no parece tener efecto en combate.");
@@ -1778,7 +1591,7 @@ public class ProyectoHP {
 						// Extraer nombre y daño con el mismo índice
 						String nombreAtaque = inventarioHechizosMago.get(indiceAleatorio);
 						int danioBase = daniosHechizosMago.get(indiceAleatorio);
-						
+
 						// Si el mago tiene menos de la mitad de la vida, pega el doble
 						if (vidaMago < 38) {
 							danioBase = danioBase * 2;
@@ -1792,16 +1605,14 @@ public class ProyectoHP {
 
 						if (resultado == 0) {
 							danioFinal = danioBase;
-							System.out.println(
-									">> ¡Te golpea brutalmente! Recibes " + danioFinal + " de daño.");
+							System.out.println(">> ¡Te golpea brutalmente! Recibes " + danioFinal + " de daño.");
 						} else if (resultado == 1) {
 							danioFinal = danioBase / 2;
-							System.out.println(
-									">> Te cubres a tiempo. Recibes solo " + danioFinal + " de daño.");
+							System.out.println(">> Te cubres a tiempo. Recibes solo " + danioFinal + " de daño.");
 						} else {
 							System.out.println(">> ¡Has esquivado el ataque!");
 						}
-						
+
 						// --- LÓGICA DE EFECTOS ---
 						if (nombreAtaque == ("Exanimus") && resultado == 0 || resultado == 1) {
 							vidaMago += 12;
@@ -1864,8 +1675,6 @@ public class ProyectoHP {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				
-				
 			}
 		}
 	}
