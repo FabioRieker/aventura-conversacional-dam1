@@ -2500,28 +2500,18 @@ public class ProyectoHP {
 									break;
 
 								case "4":
-									// CASO 4: ENTRADA RAVENCLAW
 									if (casa.equals("Ravenclaw")) {
-										System.out.println("Te acercas a una puerta sin manija, solo tiene una aldaba de bronce con forma de águila.");
-										System.out.println("La aldaba abre el pico y pregunta:");
-										System.out.println("'¿Qué fue antes, el fénix o la llama?'");
-										
-										System.out.print("Tu respuesta: ");
-										String respuestaRaven = sc.nextLine().toLowerCase();
-
-										// Verificamos si la respuesta contiene "círculo"
-										if (respuestaRaven.contains("círculo") || respuestaRaven.contains("circulo")) {
-											System.out.println("La aldaba responde: 'Bien razonado'.");
-											System.out.println("La puerta se abre. Entras a una sala aireada con vistas a las montañas.");
-											System.out.println("Te sientes más sabio y tranquilo. +20 de Moral.");
-											moral += 20;
-										} else {
-											System.out.println("La aldaba responde: 'No'. La puerta permanece cerrada.");
-											System.out.println("Te sientes frustrado por no saber la respuesta.");
-											moral -= 5;
-										}
+										System.out.println(
+												"La aldaba te pregunta: '¿Qué fue antes, el fénix o la llama?'.");
+										System.out.println("Respondes con sabiduría: 'Un círculo no tiene principio'.");
+										System.out.println(
+												"La puerta se abre. Entras a una sala aireada con vistas a las montañas.");
+										System.out.println("Te sientes más sabio y tranquilo. +20 de Moral.");
+										moral += 20;
 									} else {
-										System.out.println("Buscas la entrada, pero no ves ninguna puerta. Solo los Ravenclaw la encuentran.");
+										System.out.println(
+												"La aldaba te plantea un acertijo filosófico que no entiendes.");
+										System.out.println("Como no eres de Ravenclaw, la puerta permanece cerrada.");
 									}
 									break;
 
