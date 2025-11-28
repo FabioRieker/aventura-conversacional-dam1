@@ -34,6 +34,29 @@ public class ProyectoHP {
 		System.out.println();
 		System.out.println();
 		System.out.println();
+		String txt11 = "Hola, bienvenido a la aventura de Harry Potter";
+		for (int i = 0; i < txt11.length(); i++) {
+			System.out.print(txt11.charAt(i));
+			try {
+				Thread.sleep(50); // espera 50 milisegundos entre letras
+			} catch (InterruptedException e) {
+				e.printStackTrace(); // muestra el error si ocurre
+			}
+		}
+		System.out.println();
+		System.out.println();
+		String txt10 = "Somos Fabio Rieker, Noelia Cantador y Mateo García";
+		for (int i = 0; i < txt10.length(); i++) {
+			System.out.print(txt10.charAt(i));
+			try {
+				Thread.sleep(50); // espera 50 milisegundos entre letras
+			} catch (InterruptedException e) {
+				e.printStackTrace(); // muestra el error si ocurre
+			}
+		}
+
+		System.out.println();
+		System.out.println();
 
 		Scanner sc = new Scanner(System.in);
 		Random rd = new Random();
@@ -138,6 +161,9 @@ public class ProyectoHP {
 				String nombre = "";
 				// variables batalla
 				boolean turnoJugador;
+
+				//colores para el código
+				
 
 				do {
 					System.out.println("¿Qué personaje quieres jugar?");
@@ -1524,7 +1550,7 @@ public class ProyectoHP {
 									break;
 
 								case "3":
-									if (casa.equals("Ravenclaw")) {
+									if (casa.equals("Ravenclaw") || esMyrtle) {
 										System.out.println(
 												"La estatua te formula una pregunta: '¿Qué fue antes, el fénix o la llama?'.");
 										System.out.println("Respondes correctamente. La puerta se abre.");
