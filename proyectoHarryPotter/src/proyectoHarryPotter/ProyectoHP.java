@@ -111,7 +111,7 @@ public class ProyectoHP {
 				ArrayList<String> inventarioObjetosMago = new ArrayList<>();
 				ArrayList<String> inventarioHechizosMago = new ArrayList<>();
 				ArrayList<Integer> daniosHechizosMago = new ArrayList<>();
-				int vidaMago = 75;
+				int vidaMago = 100;
 				inventarioObjetosMago.add("nariz");
 				// Hechizos Mago
 				// Índice 0
@@ -600,6 +600,232 @@ public class ProyectoHP {
 						System.out.println("\n*** CLÍMAX ***");
 						System.out.println("Has reunido suficiente poder y has abierto la Sala de los Menesteres.");
 						System.out.println("El Mago Oscuro te espera dentro.");
+						// FINAL DEL JUEGO - COMBATE CONTRA EL MAGO (Versión completa de Mateo)
+						System.out.println("\nLlegas a la Sala de los Menesteres. El ritual ha comenzado.");
+						// aqui faltaria la escena de combate y algun dialogo con el mago malo maloso
+
+						System.out.println("¡Comienza la batalla!");
+
+						// DECIDIR QUIÉN EMPIEZA
+						if (Math.random() < 0.5) {
+							turnoJugador = true;
+							System.out.println("\n>> Empieza el jugador");
+						} else {
+							turnoJugador = false;
+							System.out.println("\n>> Empieza el Mago");
+						}
+
+						// ========================================================================
+						// BUCLE DE COMBATE
+						// ========================================================================
+						while (vida > 0 && vidaMago > 0) {
+
+							// ------------------- TURNO DEL JUGADOR -------------------
+							if (turnoJugador) {
+								System.out.println("\n------------------------------------------------");
+								System.out.println("TU TURNO | Vida: " + vida + " | Mago: " + vidaMago);
+								System.out.println("¿Qué quieres hacer?");
+								System.out.println("1. Atacar");
+								System.out.println("2. Usar Objeto");
+
+								int accion = sc.nextInt();
+
+								// --- OPCIÓN 1: ATACAR ---
+								if (accion == 1) {
+									System.out.println("=== Hechizos disponibles ===");
+									for (int i = 0; i < inventarioHechizos.size(); i++) {
+										System.out.println((i + 1) + ". " + inventarioHechizos.get(i) + " (Daño: "
+												+ daniosHechizos.get(i) + ")");
+									}
+									System.out.println("Elige ataque:");
+									int opcionAtaque = sc.nextInt();
+
+									if (opcionAtaque >= 1 && opcionAtaque <= inventarioHechizos.size()) {
+										// Recuperar datos de las listas del jugador
+										String ataqueSeleccionado = inventarioHechizos.get(opcionAtaque - 1);
+										int danioBase = daniosHechizos.get(opcionAtaque - 1);
+
+										System.out.println("¡Has lanzado " + ataqueSeleccionado + "!");
+
+										// Determinar acierto
+										int resultado = rd.nextInt(3); // 0=Total, 1=Parcial, 2=Fallo
+										int danioFinal = 0;
+
+										// --- LÓGICA DE EFECTOS ---
+										if (esDobby && ataqueSeleccionado == ("Desarmar")
+
+												&& inventarioObjetosMago.contains("nariz") && resultado == 0
+												|| resultado == 1) {
+											inventarioObjetosMago.remove("nariz");
+											danioBase = danioBase * 2;
+										}
+
+										if (resultado == 0) {
+											danioFinal = danioBase;
+											System.out
+													.println(">> ¡Impacto Directo! El Mago recibe " + danioFinal + " de daño.");
+										} else if (resultado == 1) {
+											danioFinal = danioBase / 2;
+											System.out.println(">> El Mago se cubre. Recibe " + danioFinal + " de daño.");
+										} else {
+											System.out.println(">> ¡El Mago esquivó tu ataque!");
+										}
+
+										// --- LÓGICA DE EFECTOS ---
+										if (esDobby && ataqueSeleccionado == ("Desarmar")
+
+												&& inventarioObjetosMago.contains("nariz") && resultado == 0
+												|| resultado == 1) {
+											System.out.println("La nariz del Mago cayó al suelo.");
+										}
+
+										vidaMago -= danioFinal;
+										if (vidaMago < 0)
+											vidaMago = 0;
+
+										// --- LÓGICA DE EFECTOS ---
+										if (esMyrtle && ataqueSeleccionado == ("Anima Vinculus") && resultado == 0
+												|| resultado == 1 && vida < 45 && vidaMago < 100) {
+
+											vida = (vida + vidaMago) / 2;
+											vidaMago = (vida + vidaMago) / 2;
+											System.out.println("¡Los combatientes compartieron su dolor!");
+										}
+
+										if (vidaMago < 50 && vidaMago > 0) {
+											System.out.println("¡Los hechizos del Mago se han potenciado por la rabia!");
+										}
+
+										turnoJugador = false; // Turno finalizado
+
+									} else {
+										System.out.println("Ataque no válido. Vuelve a intentarlo.");
+										continue; // Reinicia el bucle sin cambiar turno
+									}
+
+									// --- OPCIÓN 2: USAR OBJETO ---
+								} else if (accion == 2) {
+									if (inventarioObjetos.isEmpty()) {
+										System.out.println("¡No tienes objetos en el inventario!");
+										continue; // Vuelve al menú
+									}
+
+									System.out.println("=== Inventario ===");
+									for (int i = 0; i < inventarioObjetos.size(); i++) {
+										System.out.println((i + 1) + ". " + inventarioObjetos.get(i));
+									}
+									System.out.println("0. Cancelar");
+
+									System.out.println("Elige objeto:");
+									int opcionObjeto = sc.nextInt();
+
+									if (opcionObjeto == 0) {
+										continue; // Cancelar y volver al menú principal
+									}
+
+									if (opcionObjeto >= 1 && opcionObjeto <= inventarioObjetos.size()) {
+										String objetoElegido = inventarioObjetos.get(opcionObjeto - 1);
+										System.out.println("Usaste: " + objetoElegido);
+
+										// --- LÓGICA DE EFECTOS ---
+										if (objetoElegido.equals("Poción de Vida")) {
+											int cura = 20; // Cantidad que cura
+											vida += cura;
+											System.out.println(">> ¡Recuperas " + cura + " de vida!");
+										} else if (objetoElegido.equals("Calcetín")) {
+											System.out.println(">> Te pones el calcetín. No pasa nada.");
+										} else if (objetoElegido.equals("Vendas")) {
+											int cura = 10; // Cantidad que cura
+											vida += cura;
+											System.out.println(">> ¡Recuperas " + cura + " de vida!");
+										} else if (objetoElegido.equals("Colmillo Acromántula")) {
+											System.out.println(
+													"Clavas el colmillo en el mago. Su vitalidad disminuye drásticamente.");
+											vidaMago -= 25;
+										} else {
+											System.out.println(">> Este objeto no parece tener efecto en combate.");
+											continue;
+										}
+
+										// ELIMINAR EL OBJETO USADO
+										inventarioObjetos.remove(opcionObjeto - 1);
+
+										turnoJugador = false; // Turno finalizado tras usar objeto
+									} else {
+										System.out.println("Opción inválida.");
+										continue;
+									}
+
+								} else {
+									System.out.println("Acción no reconocida.");
+									continue;
+								}
+							}
+							// ------------------- TURNO DEL MAGO (ENEMIGO) -------------------
+							else {
+								System.out.println("\n------------------------------------------------");
+								System.out.println("TURNO DEL MAGO");
+
+								// Selección aleatoria del ataque usando el tamaño de su lista
+								int indiceAleatorio = rd.nextInt(inventarioHechizosMago.size());
+
+								// Extraer nombre y daño con el mismo índice
+								String nombreAtaque = inventarioHechizosMago.get(indiceAleatorio);
+								int danioBase = daniosHechizosMago.get(indiceAleatorio);
+
+								// Si el mago tiene menos de la mitad de la vida, pega el doble
+								if (vidaMago < 50) {
+									danioBase = danioBase * 2;
+								}
+
+								System.out.println("El Mago ataca con: ¡" + nombreAtaque + "!");
+
+								// Calcular acierto
+								int resultado = rd.nextInt(3);
+								int danioFinal = 0;
+
+								if (resultado == 0) {
+									danioFinal = danioBase;
+									System.out.println(">> ¡Te golpea brutalmente! Recibes " + danioFinal + " de daño.");
+								} else if (resultado == 1) {
+									danioFinal = danioBase / 2;
+									System.out.println(">> Te cubres a tiempo. Recibes solo " + danioFinal + " de daño.");
+								} else {
+									System.out.println(">> ¡Has esquivado el ataque!");
+								}
+
+								// --- LÓGICA DE EFECTOS ---
+								if (nombreAtaque == ("Exanimus") && resultado == 0 || resultado == 1) {
+									vidaMago += 12;
+									System.out.println("El Mago te roba vitalidad y se cura 12 HP.");
+								}
+
+								vida -= danioFinal;
+								if (vida < 0)
+									vida = 0;
+								System.out.println("Tu vida restante: " + vida);
+
+								turnoJugador = true; // Le toca al jugador
+							}
+						}
+
+						// ========================================================================
+						// FIN DEL COMBATE
+						// ========================================================================
+						if (vida <= 0) {
+							System.out.println("\n***********************************");
+							System.out.println("      HAS SIDO DERROTADO...");
+							System.out.println("***********************************");
+							// Reset de vida del boss por si acaso
+							vidaMago = 100;
+
+						} else {
+							System.out.println("\n***********************************");
+							System.out.println(" ¡HAS VENCIDO AL MAGO!");
+							System.out.println("***********************************");
+
+						}
+
 						explorando = false;
 						break;
 					}
@@ -798,9 +1024,11 @@ public class ProyectoHP {
 													} else if (objetoElegido.equals("Vendas")) {
 														int cura = 10; // Cantidad que cura
 														vida += cura;
+														System.out.println(">> ¡Recuperas " + cura + " de vida!");
 													} else {
 														System.out.println(
 																">> Este objeto no parece tener efecto en combate.");
+														continue;
 													}
 
 													// ELIMINAR EL OBJETO USADO
@@ -922,7 +1150,7 @@ public class ProyectoHP {
 									moral -= 5;
 									break;
 								case "2":
-									if (inventarioHechizos.contains("Alohomora")) {
+									if (inventarioHechizosMO.contains("Alohomora")) {
 										System.out.println("¡Click! Las cadenas caen. Entras a la Cámara Oculta.");
 										System.out.println("Encuentras un HORROCRUX FALSO y una nota importante.");
 										if (!inventarioObjetos.contains("Horrocrux Falso")) {
@@ -1022,10 +1250,10 @@ public class ProyectoHP {
 							switch (opBiblio) {
 								case "1":
 									System.out.println("Lees el Libro 'Como aprender hechizos para tontos'");
-									if (!inventarioHechizos.contains("Alohomora")) {
+									if (!inventarioHechizosMO.contains("Alohomora")) {
 										System.out.println(
 												"¡Has aprendido ALOHOMORA! Ahora puedes abrir puertas cerradas.");
-										inventarioHechizos.add("Alohomora");
+										inventarioHechizosMO.add("Alohomora");
 									} else {
 										System.out.println("Ya te sabes este libro de memoria.");
 									}
@@ -1142,7 +1370,7 @@ public class ProyectoHP {
 
 						case "Bosque Prohibido":
 							System.out.println("Está muy oscurisisimo. Oyes ruidos de ramas rotas.");
-							boolean tieneLuz = inventarioHechizos.contains("Lumos") || esDobby || esMyrtle;
+							boolean tieneLuz = inventarioHechizosMO.contains("Lumos") || esDobby || esMyrtle;
 
 							if (!tieneLuz) {
 								System.out.println("¡Está demasiado oscuro! No puedes avanzar sin luz.");
@@ -1150,7 +1378,7 @@ public class ProyectoHP {
 								break;
 							}
 
-							System.out.println("Lanzas el hechizo 'lumus' lo cual ilumina el camino.");
+							System.out.println("Lanzas el hechizo 'Lumos' lo cual ilumina el camino.");
 							System.out.println(
 									"Ves unas plantas extrañas, un sendero serpenteante, y en la lejanía vislumbras algo en la oscuridad del bosque");
 							System.out.println("Que quieres hacer:");
@@ -1279,9 +1507,11 @@ public class ProyectoHP {
 													} else if (objetoElegido.equals("Vendas")) {
 														int cura = 10; // Cantidad que cura
 														vida += cura;
+														System.out.println(">> ¡Recuperas " + cura + " de vida!");
 													} else {
 														System.out.println(
 																">> Este objeto no parece tener efecto en combate.");
+														continue;
 													}
 
 													// ELIMINAR EL OBJETO USADO
@@ -1450,7 +1680,7 @@ public class ProyectoHP {
 								case "1":
 
 									// Primero verificamos si ya tiene el hechizo para no repetir el acertijo
-									if (inventarioHechizos.contains("Lumos")) {
+									if (inventarioHechizosMO.contains("Lumos")) {
 										System.out
 												.println("Neville: Ya te enseñé el hechizo, ¡ve a salvar el colegio!");
 									} else {
@@ -1478,7 +1708,7 @@ public class ProyectoHP {
 												System.out.println(
 														"Neville: ¡Correcto! Te voy a enseñar un hechizo útil.");
 												System.out.println("--- ¡HAS APRENDIDO LUMOS! ---");
-												inventarioHechizos.add("Lumos");
+												inventarioHechizosMO.add("Lumos");
 											} else {
 												System.out
 														.println("Neville: Mmm... no me suena. Deberías estudiar más.");
@@ -1494,7 +1724,7 @@ public class ProyectoHP {
 												System.out.println(
 														"Neville: ¡Ay Myrtle deja de llorar! Toma, un hechizo para que veas en la oscuridad.");
 												System.out.println("--- ¡HAS APRENDIDO LUMOS! ---");
-												inventarioHechizos.add("Lumos");
+												inventarioHechizosMO.add("Lumos");
 											} else {
 												System.out.println(
 														"Neville: Myrtle, por favor, deja de llorar y vuelve en otro momento.");
@@ -1511,7 +1741,7 @@ public class ProyectoHP {
 												System.out.println(
 														"Neville: Jaja, muy bueno Dobby. Toma amigo, aprende esto.");
 												System.out.println("--- ¡HAS APRENDIDO LUMOS! ---");
-												inventarioHechizos.add("Lumos");
+												inventarioHechizosMO.add("Lumos");
 											} else {
 												System.out.println(
 														"Neville: ¡Dobby no te castigues! Inténtalo más tarde.");
@@ -1648,230 +1878,7 @@ public class ProyectoHP {
 					}
 				}
 
-				// FINAL DEL JUEGO - COMBATE CONTRA EL MAGO (Versión completa de Mateo)
-				System.out.println("\nLlegas a la Sala de los Menesteres. El ritual ha comenzado.");
-				// aqui faltaria la escena de combate y algun dialogo con el mago malo maloso
-
-				System.out.println("¡Comienza la batalla!");
-
-				// DECIDIR QUIÉN EMPIEZA
-				if (Math.random() < 0.5) {
-					turnoJugador = true;
-					System.out.println("\n>> Empieza el jugador");
-				} else {
-					turnoJugador = false;
-					System.out.println("\n>> Empieza el Mago");
-				}
-
-				// ========================================================================
-				// BUCLE DE COMBATE
-				// ========================================================================
-				while (vida > 0 && vidaMago > 0) {
-
-					// ------------------- TURNO DEL JUGADOR -------------------
-					if (turnoJugador) {
-						System.out.println("\n------------------------------------------------");
-						System.out.println("TU TURNO | Vida: " + vida + " | Mago: " + vidaMago);
-						System.out.println("¿Qué quieres hacer?");
-						System.out.println("1. Atacar");
-						System.out.println("2. Usar Objeto");
-
-						int accion = sc.nextInt();
-
-						// --- OPCIÓN 1: ATACAR ---
-						if (accion == 1) {
-							System.out.println("=== Hechizos disponibles ===");
-							for (int i = 0; i < inventarioHechizos.size(); i++) {
-								System.out.println((i + 1) + ". " + inventarioHechizos.get(i) + " (Daño: "
-										+ daniosHechizos.get(i) + ")");
-							}
-							System.out.println("Elige ataque:");
-							int opcionAtaque = sc.nextInt();
-
-							if (opcionAtaque >= 1 && opcionAtaque <= inventarioHechizos.size()) {
-								// Recuperar datos de las listas del jugador
-								String ataqueSeleccionado = inventarioHechizos.get(opcionAtaque - 1);
-								int danioBase = daniosHechizos.get(opcionAtaque - 1);
-
-								System.out.println("¡Has lanzado " + ataqueSeleccionado + "!");
-
-								// Determinar acierto
-								int resultado = rd.nextInt(3); // 0=Total, 1=Parcial, 2=Fallo
-								int danioFinal = 0;
-
-								// --- LÓGICA DE EFECTOS ---
-								if (esDobby && ataqueSeleccionado == ("Desarmar")
-
-										&& inventarioObjetosMago.contains("nariz") && resultado == 0
-										|| resultado == 1) {
-									inventarioObjetosMago.remove("nariz");
-									danioBase = danioBase * 2;
-								}
-
-								if (resultado == 0) {
-									danioFinal = danioBase;
-									System.out
-											.println(">> ¡Impacto Directo! El Mago recibe " + danioFinal + " de daño.");
-								} else if (resultado == 1) {
-									danioFinal = danioBase / 2;
-									System.out.println(">> El Mago se cubre. Recibe " + danioFinal + " de daño.");
-								} else {
-									System.out.println(">> ¡El Mago esquivó tu ataque!");
-								}
-
-								// --- LÓGICA DE EFECTOS ---
-								if (esDobby && ataqueSeleccionado == ("Desarmar")
-
-										&& inventarioObjetosMago.contains("nariz") && resultado == 0
-										|| resultado == 1) {
-									System.out.println("La nariz del Mago cayó al suelo.");
-								}
-
-								vidaMago -= danioFinal;
-								if (vidaMago < 0)
-									vidaMago = 0;
-
-								// --- LÓGICA DE EFECTOS ---
-								if (esMyrtle && ataqueSeleccionado == ("Anima Vinculus") && resultado == 0
-										|| resultado == 1 && vida < 45 && vidaMago < 75) {
-
-									vida = (vida + vidaMago) / 2;
-									vidaMago = (vida + vidaMago) / 2;
-									System.out.println("¡Los combatientes compartieron su dolor!");
-								}
-
-								if (vidaMago < 38 && vidaMago > 0) {
-									System.out.println("¡Los hechizos del Mago se han potenciado por la rabia!");
-								}
-
-								turnoJugador = false; // Turno finalizado
-
-							} else {
-								System.out.println("Ataque no válido. Vuelve a intentarlo.");
-								continue; // Reinicia el bucle sin cambiar turno
-							}
-
-							// --- OPCIÓN 2: USAR OBJETO ---
-						} else if (accion == 2) {
-							if (inventarioObjetos.isEmpty()) {
-								System.out.println("¡No tienes objetos en el inventario!");
-								continue; // Vuelve al menú
-							}
-
-							System.out.println("=== Inventario ===");
-							for (int i = 0; i < inventarioObjetos.size(); i++) {
-								System.out.println((i + 1) + ". " + inventarioObjetos.get(i));
-							}
-							System.out.println("0. Cancelar");
-
-							System.out.println("Elige objeto:");
-							int opcionObjeto = sc.nextInt();
-
-							if (opcionObjeto == 0) {
-								continue; // Cancelar y volver al menú principal
-							}
-
-							if (opcionObjeto >= 1 && opcionObjeto <= inventarioObjetos.size()) {
-								String objetoElegido = inventarioObjetos.get(opcionObjeto - 1);
-								System.out.println("Usaste: " + objetoElegido);
-
-								// --- LÓGICA DE EFECTOS ---
-								if (objetoElegido.equals("Poción de Vida")) {
-									int cura = 20; // Cantidad que cura
-									vida += cura;
-									System.out.println(">> ¡Recuperas " + cura + " de vida!");
-								} else if (objetoElegido.equals("Calcetín")) {
-									System.out.println(">> Te pones el calcetín. No pasa nada.");
-								} else if (objetoElegido.equals("Vendas")) {
-									int cura = 10; // Cantidad que cura
-									vida += cura;
-								} else if (objetoElegido.equals("Colmillo Acromántula")) {
-									System.out.println(
-											"Clavas el colmillo en el mago. Su vitalidad disminuye drásticamente.");
-									vidaMago -= 25;
-								} else {
-									System.out.println(">> Este objeto no parece tener efecto en combate.");
-								}
-
-								// ELIMINAR EL OBJETO USADO
-								inventarioObjetos.remove(opcionObjeto - 1);
-
-								turnoJugador = false; // Turno finalizado tras usar objeto
-							} else {
-								System.out.println("Opción inválida.");
-								continue;
-							}
-
-						} else {
-							System.out.println("Acción no reconocida.");
-							continue;
-						}
-					}
-					// ------------------- TURNO DEL MAGO (ENEMIGO) -------------------
-					else {
-						System.out.println("\n------------------------------------------------");
-						System.out.println("TURNO DEL MAGO");
-
-						// Selección aleatoria del ataque usando el tamaño de su lista
-						int indiceAleatorio = rd.nextInt(inventarioHechizosMago.size());
-
-						// Extraer nombre y daño con el mismo índice
-						String nombreAtaque = inventarioHechizosMago.get(indiceAleatorio);
-						int danioBase = daniosHechizosMago.get(indiceAleatorio);
-
-						// Si el mago tiene menos de la mitad de la vida, pega el doble
-						if (vidaMago < 38) {
-							danioBase = danioBase * 2;
-						}
-
-						System.out.println("El Mago ataca con: ¡" + nombreAtaque + "!");
-
-						// Calcular acierto
-						int resultado = rd.nextInt(3);
-						int danioFinal = 0;
-
-						if (resultado == 0) {
-							danioFinal = danioBase;
-							System.out.println(">> ¡Te golpea brutalmente! Recibes " + danioFinal + " de daño.");
-						} else if (resultado == 1) {
-							danioFinal = danioBase / 2;
-							System.out.println(">> Te cubres a tiempo. Recibes solo " + danioFinal + " de daño.");
-						} else {
-							System.out.println(">> ¡Has esquivado el ataque!");
-						}
-
-						// --- LÓGICA DE EFECTOS ---
-						if (nombreAtaque == ("Exanimus") && resultado == 0 || resultado == 1) {
-							vidaMago += 12;
-							System.out.println("El Mago te roba vitalidad y se cura 12 HP.");
-						}
-
-						vida -= danioFinal;
-						if (vida < 0)
-							vida = 0;
-						System.out.println("Tu vida restante: " + vida);
-
-						turnoJugador = true; // Le toca al jugador
-					}
-				}
-
-				// ========================================================================
-				// FIN DEL COMBATE
-				// ========================================================================
-				if (vida <= 0) {
-					System.out.println("\n***********************************");
-					System.out.println("      HAS SIDO DERROTADO...");
-					System.out.println("***********************************");
-					// Reset de vida del boss por si acaso
-					vidaMago = 75;
-
-				} else {
-					System.out.println("\n***********************************");
-					System.out.println(" ¡HAS VENCIDO AL MAGO!");
-					System.out.println("***********************************");
-
-				}
-
+				
 				// Cálculo de finales según moral (HABRIA QUE REVISAR LA MORAL PORQUE PUSE
 				// NUMEROS UN POCO RANDOM, Y ALOMEJOR HABRIA QUE HACER QUE ALGUNAS DECISIONES
 				// CAMBIEN LA MORAL
