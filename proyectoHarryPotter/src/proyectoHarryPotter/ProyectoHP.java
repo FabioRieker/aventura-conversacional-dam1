@@ -842,6 +842,7 @@ public class ProyectoHP {
 							}
 
 							System.out.println("\n--- FIN DEL JUEGO ---");
+							System.out.println("");
 
 
 						}
