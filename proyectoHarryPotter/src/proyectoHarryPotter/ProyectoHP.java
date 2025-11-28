@@ -8,9 +8,11 @@ public class ProyectoHP {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		String colorF7DA85 = "\u001B[38;2;247;218;133m";
+		String RESET = "\u001B[0m ";
 
-		System.out.println("╔══════════════════════════════════════════════════════════════════════╗");
-		System.out.println(
+		System.out.println( colorF7DA85 + "╔══════════════════════════════════════════════════════════════════════╗" + RESET);
+		System.out.println( colorF7DA85 +
 				"        			                                                                                         \n"
 						+ "                                                                                                    \n"
 						+ "      ▄ .▄ ▄▄▄· ▄▄▄  ▄▄▄   ▄· ▄▌     ▄▄▄·      ▄▄▄▄▄▄▄▄▄▄▄▄▄ .▄▄▄                                   \n"
@@ -28,8 +30,8 @@ public class ProyectoHP {
 						+ "    ██ ▄▄ ▄█▀▄ ▐█▐▐▌▐█▐█•▐▀▀▪▄▐▀▀▄ ▄▀▀▀█▄▄█▀▀█ ██ ▄▄▐█· ▄█▀▄ ▐█▐▐▌▄█▀▀█ ██▪  \n"
 						+ "    ▐███▌▐█▌.▐▌██▐█▌ ███ ▐█▄▄▌▐█•█▌▐█▄▪▐█▐█ ▪▐▌▐███▌▐█▌▐█▌.▐▌██▐█▌▐█ ▪▐▌▐█▌▐▌\n"
 						+ "    ·▀▀▀  ▀█▄▀▪▀▀ █▪. ▀   ▀▀▀ .▀  ▀ ▀▀▀▀  ▀  ▀ ·▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪ ▀  ▀ .▀▀▀      	                                                                                        \n"
-						+ "                                                                                                           ");
-		System.out.println("╚═══════════════════════════════════════════════════════════════════════════════╝");
+						+ "                                                                                                           " + RESET);
+		System.out.println( colorF7DA85 + "╚═══════════════════════════════════════════════════════════════════════════════╝" + RESET);
 
 		System.out.println();
 		System.out.println();
@@ -48,6 +50,18 @@ public class ProyectoHP {
 		String txt10 = "Somos Fabio Rieker, Noelia Cantador y Mateo García";
 		for (int i = 0; i < txt10.length(); i++) {
 			System.out.print(txt10.charAt(i));
+			try {
+				Thread.sleep(50); // espera 50 milisegundos entre letras
+			} catch (InterruptedException e) {
+				e.printStackTrace(); // muestra el error si ocurre
+			}
+		}
+
+		System.out.println();
+		System.out.println();
+		String txt12 = "Nos hace mucha ilusión que puedas ayudarnos a resolver el misterio en Hogwarts y puedas resolver todos los misterios que hay ";
+		for (int i = 0; i < txt12.length(); i++) {
+			System.out.print(txt12.charAt(i));
 			try {
 				Thread.sleep(50); // espera 50 milisegundos entre letras
 			} catch (InterruptedException e) {
@@ -163,6 +177,10 @@ public class ProyectoHP {
 				boolean turnoJugador;
 
 				//colores para el código
+				String RESET1= "\u001B[0m ";
+				String RED = "\u001B[31m";
+
+
 				
 
 				do {
@@ -844,6 +862,8 @@ public class ProyectoHP {
 							System.out.println("***********************************");
 							// Reset de vida del boss por si acaso
 							vidaMago = 100;
+							vida = 0;
+							return;
 
 						} else {
 							System.out.println("\n***********************************");
@@ -1120,6 +1140,8 @@ public class ProyectoHP {
 										System.out.println("      HAS SIDO DERROTADO...");
 										System.out.println("***********************************");
 										vidaBaron = 45;
+										vida = 0;
+												return;
 
 									} else {
 										System.out.println("\n***********************************");
@@ -1649,7 +1671,7 @@ public class ProyectoHP {
 										inventarioObjetos.add("Dictamo");
 									} else {
 										System.out.println("El Labubu salta hacia tu cuello y todo se vuelve negro...");
-										System.out.println(" "
+										System.out.println( RED + " "
 												+ "███▄ ▄███▓ █    ██ ▓█████  ██▀███  ▓█████   ██████                     \n"
 												+ "▓██▒▀█▀ ██▒ ██  ▓██▒▓█   ▀ ▓██ ▒ ██▒▓█   ▀ ▒██    ▒                     \n"
 												+ "▓██    ▓██░▓██  ▒██░▒███   ▓██ ░▄█ ▒▒███   ░ ▓██▄                       \n"
@@ -1677,7 +1699,7 @@ public class ProyectoHP {
 												+ " ░ ▒  ▒  ░ ░  ░░ ░▒  ░ ░  ▒   ▒▒ ░░ ░░   ░ ▒░  ░   ░   ░▒ ░ ▒░  ▒   ▒▒ ░	░ ▒  ▒   ░ ▒ ▒░				\n"
 												+ " ░ ░  ░    ░   ░  ░      ░   ▒      ░   ░ ░ ░ ░   ░   ░░   ░   ░   ▒   	░ ░  ░ ░ ░ ░ ▒				\n"
 												+ "   ░       ░  ░      ░        ░  ░         ░       ░    ░           ░  ░							\n"
-												+ " ░                                                                      ");
+												+ " ░                                                                      " + RESET1);
 
 										System.out.println("Has muerto devorado por una criatura adorable.");
 										vida = 0;
@@ -1851,7 +1873,7 @@ public class ProyectoHP {
 														"Fluffy gime confundido y se echa hacia atrás. Te salvas por estar muerta.");
 											} else {
 												System.out.println(
-														" ███▄ ▄███▓ █    ██ ▓█████  ██▀███  ▓█████   ██████ \n"
+													RED +			" ███▄ ▄███▓ █    ██ ▓█████  ██▀███  ▓█████   ██████ \n"
 																+ "▓██▒▀█▀ ██▒ ██  ▓██▒▓█   ▀ ▓██ ▒ ██▒▓█   ▀ ▒██    ▒ \n"
 																+ "▓██    ▓██░▓██  ▒██░▒███   ▓██ ░▄█ ▒▒███   ░ ▓██▄   \n"
 																+ "▒██    ▒██ ▓▓█  ░██░▒▓█  ▄ ▒██▀▀█▄  ▒▓█  ▄   ▒   ██▒\n"
@@ -1868,7 +1890,7 @@ public class ProyectoHP {
 																+ "                        ░▒█░                        \n"
 																+ "                         ▒ ░                        \n"
 																+ "                         ░                          \n"
-																+ "                         ░ ░                        ");
+																+ "                         ░ ░                        " + RESET1);
 												System.out.println(
 														"Fluffy ruge y se lanza sobre ti antes de que puedas huir.");
 												System.out.println(
