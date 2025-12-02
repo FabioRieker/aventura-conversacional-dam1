@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gorro Seleccionador - PC Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            /* --- FONDO: CASTILLO DE HOGWARTS --- */
+            background-image: url('https://images.unsplash.com/photo-1618944913480-b67ee16d7b77?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            /* Aseguramos que en PC no haya scroll horizontal innecesario */
+            overflow-x: hidden; 
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Fondo oscuro para contraste */
+            z-index: -1;
+        }
+
+        /* --- Estilos Generales de Secciones --- */
+        section {
+            display: none;
+            width: 100%;
+            max-width: 600px;
+            background-color: rgba(20, 20, 35, 0.85); 
+            backdrop-filter: blur(8px);             
+            -webkit-backdrop-filter: blur(8px);
+            padding: 40px;
+            border-radius: 16px; 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); 
+            text-align: center;
+            position: relative;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Icono flotante */
+        section::before {
+            content: "✨";
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            text-shadow: 0 0 10px #ffd700;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-5px); }
+            100% { transform: translateX(-50%) translateY(0px); }
+        }
+
+        .activo { display: flex; animation: fadeIn 0.8s ease-out; }
+        
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(169, 137, 255, 0.4); 
+        }
+
+        p { font-size: 1.1em; color: #d1d1e0; }
+
+        .botones {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 15px; 
+        }
+
+        button {
+            background: rgba(255, 255, 255, 0.07);
+            color: white;
+            padding: 18px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, rgba(59, 76, 202, 0.6) 0%, rgba(106, 48, 147, 0.6) 100%);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* --- ESTILOS ESPECÍFICOS DEL RESULTADO (LAYOUT GRID FIJO PARA PC) --- */
+        #resultado {
+            max-width: 1000px; /* Un poco más ancho para PC */
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            backdrop-filter: none;
+            padding: 0;
+        }
+
+        #resultado::before { display: none; } /* Quitar icono flotante del resultado */
+
+        /* Grid Layout Container - FIJO */
+        .layout-grid {
+            display: grid;
+            width: 100%;
+            gap: 20px; /* Más espacio entre cajas en PC */
+            /* Definimos las áreas según tu dibujo */
+            grid-template-areas:
+                "titulo titulo titulo"
+                "sala sala personajes"
+                "fundador mascota descripcion"
+                "clase clase descripcion";
+            grid-template-columns: 1.5fr 1fr 1.5fr; /* Tres columnas fijas */
+            margin-top: 30px;
+        }
+
+        /* Estilos comunes para las cajas */
+        .caja {
+            background-color: rgba(15, 15, 20, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 20px; /* Más padding interno en PC */
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .caja:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.6); }
+
+        /* Asignación de áreas */
+        .area-titulo { grid-area: titulo; text-align: center; }
+        .area-sala { grid-area: sala; }
+        .area-personajes { grid-area: personajes; }
+        .area-fundador { grid-area: fundador; }
+        .area-mascota { grid-area: mascota; }
+        .area-clase { grid-area: clase; }
+        .area-descripcion { grid-area: descripcion; }
+
+        /* Estilos internos de las cajas */
+        .label-caja {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9em;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 5px;
+        }
+
+        .contenido-caja {
+            font-size: 1.1em; /* Texto un poco más grande para PC */
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        .texto-largo {
+            font-size: 1em;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Imagen de la sala común */
+        #imgSala {
+            width: 100%;
+            height: 250px; /* Imagen más alta en PC */
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+
+        #casaFinal {
+            font-size: 4em; /* Título más grande en PC */
+            margin: 0;
+            text-shadow: 0 0 20px currentColor;
+        }
+
+        /* --- SE HA ELIMINADO TODA LA SECCIÓN @media (RESPONSIVE) --- */
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    
+    <section id="pantalla1" class="activo">
+        <h1>El Sombrero Seleccionador</h1>
+        <p style="margin-bottom: 30px; font-style: italic;">"Difícil, muy difícil... veo mucho valor, y una mente aguda... ¿dónde te pondré?"</p>
+        <div class="botones">
+            <button onclick="cargarPregunta(0)">Comenzar Ceremonia</button>
+        </div>
+    </section>
+
+    <section id="preguntas"></section>
+
+    <section id="resultado">
+        
+        <div class="layout-grid">
+            
+            <div class="area-titulo">
+                <h2 style="margin:0; font-size: 1.2rem; color: #ccc; letter-spacing: 2px;">¡PERTENECES A!</h2>
+                <h1 id="casaFinal"></h1>
+            </div>
+
+            <div class="caja area-sala">
+                <div class="label-caja">Sala Común</div>
+                <img id="imgSala" src="" alt="Sala Común">
+            </div>
+
+            <div class="caja area-personajes">
+                <div class="label-caja">Personajes Célebres</div>
+                <div id="txtPersonajes" class="contenido-caja texto-largo"></div>
+            </div>
+
+            <div class="caja area-fundador">
+                <div class="label-caja">Fundador/a</div>
+                <div id="txtFundador" class="contenido-caja"></div>
+            </div>
+
+            <div class="caja area-mascota">
+                <div class="label-caja">Mascota</div>
+                <div id="txtMascota" class="contenido-caja"></div>
+            </div>
+
+            <div class="caja area-clase">
+                <div class="label-caja">Clase Destacada</div>
+                <div id="txtClase" class="contenido-caja"></div>
+            </div>
+
+            <div class="caja area-descripcion">
+                <div class="label-caja">Sobre tu casa</div>
+                <div id="txtDescripcion" class="contenido-caja texto-largo"></div>
+            </div>
+
+        </div>
+
+        <div class="botones" style="margin: 40px auto; width: 100%; max-width: 300px;">
+            <button onclick="location.reload()">Volver a intentar</button>
+        </div>
+    </section>
+
+    <script>
+        let casas = { Gryffindor: 0, Slytherin: 0, Ravenclaw: 0, Hufflepuff: 0 };
+
+        /* --- BASE DE DATOS CON TUS IMÁGENES LOCALES --- */
+        const infoCasas = {
+            "Gryffindor": {
+                fundador: "Godric Gryffindor",
+                mascota: "León",
+                clase: "Defensa Contra las Artes Oscuras",
+                descripcion: "Donde habitan los valientes. Su osadía, temple y caballerosidad ponen aparte a los de Gryffindor.",
+                personajes: "Harry Potter, Hermione Granger, Albus Dumbledore.",
+                color: "#ff4d4d",
+                imagenSala: "gryffindor.jpg" 
+            },
+            "Slytherin": {
+                fundador: "Salazar Slytherin",
+                mascota: "Serpiente",
+                clase: "Pociones",
+                descripcion: "Esa gente astuta utiliza cualquier medio para lograr sus fines. Valoran la ambición, la astucia y la pureza de sangre.",
+                personajes: "Severus Snape, Draco Malfoy, Tom Riddle.",
+                color: "#2ecc71",
+                imagenSala: "slyhterin.jpg" 
+            },
+            "Ravenclaw": {
+                fundador: "Rowena Ravenclaw",
+                mascota: "Águila",
+                clase: "Encantamientos",
+                descripcion: "Para aquellos de inteligencia y erudición. Los de mente siempre alerta encontrarán aquí a sus semejantes.",
+                personajes: "Luna Lovegood, Cho Chang, Filius Flitwick.",
+                color: "#54a0ff",
+                imagenSala: "ravenclaw.jpg"
+            },
+            "Hufflepuff": {
+                fundador: "Helga Hufflepuff",
+                mascota: "Tejón",
+                clase: "Herbología",
+                descripcion: "Donde son justos y leales. Esos pacientes Hufflepuff son verdaderos y no temen el trabajo pesado.",
+                personajes: "Cedric Diggory, Newt Scamander, Nymphadora Tonks.",
+                color: "#feca57",
+                imagenSala: "hufflepuff.jpg"
+            }
+        };
+
+        const preguntas = [
+            { texto: "¿Qué valor aprecias más?", opciones: [
+                {txt:"Valentía", casa:"Gryffindor"}, {txt:"Ambición", casa:"Slytherin"},
+                {txt:"Sabiduría", casa:"Ravenclaw"}, {txt:"Lealtad", casa:"Hufflepuff"}
+            ]},
+            { texto: "¿Qué animal prefieres?", opciones: [
+                {txt:"León", casa:"Gryffindor"}, {txt:"Serpiente", casa:"Slytherin"},
+                {txt:"Águila", casa:"Ravenclaw"}, {txt:"Tejón", casa:"Hufflepuff"}
+            ]},
+            { texto: "¿Qué asignatura te atrae más?", opciones: [
+                {txt:"Defensa Artes Oscuras", casa:"Gryffindor"}, {txt:"Pociones", casa:"Slytherin"},
+                {txt:"Encantamientos", casa:"Ravenclaw"}, {txt:"Criaturas Mágicas", casa:"Hufflepuff"}
+            ]},
+            { texto: "¿Cómo enfrentas un reto?", opciones: [
+                {txt:"De frente", casa:"Gryffindor"}, {txt:"Con estrategia", casa:"Slytherin"},
+                {txt:"Analizando", casa:"Ravenclaw"}, {txt:"Con paciencia", casa:"Hufflepuff"}
+            ]},
+            { texto: "¿Qué cualidad valoran tus amigos?", opciones: [
+                {txt:"Coraje", casa:"Gryffindor"}, {txt:"Determinación", casa:"Slytherin"},
+                {txt:"Inteligencia", casa:"Ravenclaw"}, {txt:"Bondad", casa:"Hufflepuff"}
+            ]},
+            { texto: "¿Qué lugar te atrae más?", opciones: [
+                {txt:"Torre Alta", casa:"Gryffindor"}, {txt:"Mazmorras", casa:"Slytherin"},
+                {txt:"Biblioteca", casa:"Ravenclaw"}, {txt:"Cerca de la cocina", casa:"Hufflepuff"}
+            ]},
+            { texto: "¿Qué hechizo usarías?", opciones: [
+                {txt:"Expelliarmus", casa:"Gryffindor"}, {txt:"Avada Kedavra", casa:"Slytherin"},
+                {txt:"Expecto Patronum", casa:"Ravenclaw"}, {txt:"Protego", casa:"Hufflepuff"}
+            ]}
+        ];
+
+        let preguntaActual = 0;
+
+        function cargarPregunta(indice){
+            document.querySelectorAll("section").forEach(s=>s.classList.remove("activo"));
+            let pantalla = document.getElementById("preguntas");
+            void pantalla.offsetWidth; 
+            pantalla.classList.add("activo");
+            
+            pantalla.innerHTML = `<h1>${preguntas[indice].texto}</h1>`;
+            let div = document.createElement("div");
+            div.classList.add("botones");
+            preguntas[indice].opciones.forEach(op=>{
+                let btn = document.createElement("button");
+                btn.innerText = op.txt;
+                btn.onclick = ()=>{ casas[op.casa]++; siguientePregunta(); };
+                div.appendChild(btn);
+            });
+            pantalla.appendChild(div);
+        }
+
+        function siguientePregunta(){
+            preguntaActual++;
+            if(preguntaActual < preguntas.length){
+                cargarPregunta(preguntaActual);
+            } else {
+                mostrarResultado();
+            }
+        }
+
+        function mostrarResultado(){
+            document.querySelectorAll("section").forEach(s=>s.classList.remove("activo"));
+            let pantalla = document.getElementById("resultado");
+            pantalla.classList.add("activo");
+            
+            let casaGanadora = Object.keys(casas).reduce((a,b)=> casas[a] > casas[b] ? a : b);
+            let info = infoCasas[casaGanadora];
+
+            // Rellenar datos principales
+            let titulo = document.getElementById("casaFinal");
+            titulo.innerText = casaGanadora.toUpperCase();
+            titulo.style.color = info.color;
+            titulo.style.textShadow = `0 0 30px ${info.color}, 0 0 10px white`;
+
+            // Rellenar las cajas del layout
+            document.getElementById("imgSala").src = info.imagenSala;
+            
+            document.getElementById("txtPersonajes").innerText = info.personajes;
+            document.getElementById("txtFundador").innerText = info.fundador;
+            document.getElementById("txtMascota").innerText = info.mascota;
+            document.getElementById("txtClase").innerText = info.clase;
+            document.getElementById("txtDescripcion").innerText = info.descripcion;
+
+            // Colorear bordes de las cajas según la casa
+            let cajas = document.querySelectorAll(".caja");
+            cajas.forEach(caja => {
+                caja.style.borderLeft = `3px solid ${info.color}`;
+            });
+        }
+    </script>
+</body>
+</html>
