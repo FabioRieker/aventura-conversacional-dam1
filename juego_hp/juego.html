@@ -1,7 +1,5 @@
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gorro Seleccionador</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     
@@ -112,7 +110,7 @@
                 "fundador mascota descripcion"
                 "clase clase descripcion";
             grid-template-columns: 1.5fr 1fr 1.5fr;
-            margin-top: 30px;
+            margin-top: 180px;
         }
 
         .caja {
@@ -172,7 +170,6 @@
             margin-top: 5px;
         }
 
-        /* Estilo para la imagen del personaje */
         #imgPersonaje {
             width: 100%;
             height: 180px; 
@@ -252,7 +249,7 @@
     <script>
         let casas = { Gryffindor: 0, Slytherin: 0, Ravenclaw: 0, Hufflepuff: 0 };
 
-        /* --- BASE DE DATOS ACTUALIZADA CON TUS NOMBRES DE ARCHIVO --- */
+        /* ---Casas y su info --- */
         const infoCasas = {
             "Gryffindor": {
                 fundador: "Godric Gryffindor",
@@ -271,7 +268,7 @@
                 descripcion: "Esa gente astuta utiliza cualquier medio para lograr sus fines. Valoran la ambición, la astucia y la pureza de sangre.",
                 personajes: "Severus Snape, Draco Malfoy, Tom Riddle.",
                 color: "#2ecc71",
-                /* Nombres corregidos según tu carpeta */
+                
                 imagenSala: "slyhterin.jpg",  
                 imagenPersonaje: "tom.jpg"
             },
@@ -283,7 +280,7 @@
                 personajes: "Luna Lovegood, Cho Chang, Filius Flitwick.",
                 color: "#54a0ff",
                 imagenSala: "ravenclaw.jpg",
-                /* Nombre corregido según tu carpeta */
+                
                 imagenPersonaje: "lunalovegood.jpg"
             },
             "Hufflepuff": {
